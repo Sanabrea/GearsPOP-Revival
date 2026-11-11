@@ -16,10 +16,10 @@ Nemacysts,1,Common,,,68,,,,,,,,,spawn_count=3; damage_radius=Small; objectives_d
 Shock Barrier,1,Common,,97,16,,,,,,,,,lifetime_s=45; shock_potency=75%; shock_duration_s=4
 Snub Soldiers,1,Common,,48,16,13.3,1.2,All,24,6,Average,2,,
 Stun Grenade,1,Common,,,,,,,,,,,,stun_duration_s=2.5; stun_radius=Medium
-Kantus,1,Common,,132,11,12.2,0.9,All,24,5,Average,,,la ficha en español decía "Grinder" (Común); stats y modelo coinciden con Kantus
+Kantus,1,Common,,132,11,12.2,0.9,All,24,5,Average,,,the Spanish-language card said "Grinder" (Common); stats and model match Kantus
 Sentry,1,Rare,,379,23,46,0.5,All,17,,,,,lifetime_s=50
 Wretches,1,Rare,,40,12,15,0.8,All,Melee,7,,5,Yes,
-Reyna Diaz,1,Epic,,234,79,101,1.3,All,Melee,7,,,,DPS mayor que daño/cadencia (probable golpe crítico periódico)
+Reyna Diaz,1,Epic,,234,79,101,1.3,All,Melee,7,,,,DPS higher than damage/attack rate (likely periodic critical hit)
 Old Man Marcus,1,Legendary,,350,65,92.9,0.7,All,24,5,Strong,,,
 Dominic Santiago,1,Epic,,438,42,42,1,All,18,3,,,,
 Longshot Gear,1,Common,4,136,113,29.7,3.8,All,42,3,Weak,,,

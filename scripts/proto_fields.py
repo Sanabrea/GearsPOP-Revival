@@ -1,4 +1,4 @@
-"""Lista (campo, tipo de cable, siguiente llamada) de cada WriteFieldHeader en una función Write generada."""
+"""Lists (field, wire type, next call) for each WriteFieldHeader in a generated Write function."""
 import sys, json, re, subprocess, bisect
 dump, so = sys.argv[1], sys.argv[2]
 sj = json.load(open(dump + '/script.json'))

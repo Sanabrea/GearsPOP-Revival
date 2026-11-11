@@ -1,0 +1,8 @@
+ready
+[test] gRPC start /GrpcTransport/raw authority=127.0.0.1:18080 accept=*/* content-length=158
+[test] CATAPULT Message<LoginRequest> op=Request bytes=153 headers=[OperationHeader] requestId=0900010203040506071108090a0b0c0d0e0f
+[test]   LoginRequest IdentityType=DeviceId IdentityToken=88 chars ClientVersion=1.98 ContentETag=null Platform=Android
+[test]   -> Result<SessionTokenResponse> with Error 471 ContentUpdateRequired (client ETag=null)
+[test] -> sent gRPC stream=1 bytes=184
+[test] stream 1 closed by the client
+end: java.io.EOFException

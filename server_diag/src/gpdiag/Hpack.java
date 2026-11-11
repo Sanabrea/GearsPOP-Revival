@@ -4,7 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
-/** Decodificador HPACK (RFC 7541) mínimo, con tabla dinámica y Huffman. Tabla generada desde el JDK 17. */
+/** Minimal HPACK (RFC 7541) decoder, with dynamic table and Huffman. Table generated from JDK 17. */
 class Hpack {
     static final String[][] STATIC = {
         {":authority",""},{":method","GET"},{":method","POST"},{":path","/"},{":path","/index.html"},{":scheme","http"},
@@ -43,7 +43,7 @@ class Hpack {
     }
 
     String[] get(int i) {
-        if (i <= 0) throw new IllegalStateException("índice 0");
+        if (i <= 0) throw new IllegalStateException("index 0");
         if (i <= STATIC.length) return STATIC[i - 1];
         return dyn.get(i - STATIC.length - 1);
     }
@@ -67,7 +67,7 @@ class Hpack {
         return huff ? huffman(s) : new String(s, StandardCharsets.ISO_8859_1);
     }
 
-    // Se arma al primer uso: CODES/LENS están declarados al final de la clase y en un static{} aquí arriba aún serían null.
+    // Built on first use: CODES/LENS are declared at the end of the class and would still be null in a static{} up here.
     static Map<Long, Integer> LOOKUP;
     static synchronized Map<Long, Integer> lookup() {
         if (LOOKUP == null) {
@@ -85,7 +85,7 @@ class Hpack {
         for (byte by : s) for (int bit = 7; bit >= 0; bit--) {
             code = (code << 1) | ((by >> bit) & 1); len++;
             if (len >= 5) { Integer ch = LOOKUP.get(((long) len << 32) | code); if (ch != null) { o.write(ch); code = 0; len = 0; } }
-            if (len > 30) return "<huffman inválido>";
+            if (len > 30) return "<invalid huffman>";
         }
         return new String(o.toByteArray(), StandardCharsets.ISO_8859_1);
     }

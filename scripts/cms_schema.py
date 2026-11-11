@@ -1,6 +1,6 @@
-"""Esquema del CMS desde el volcado: grupos [CMSGroup] y campos [CMSField]/[CMSReference]/[CMSDefault]/... de cada clase.
-Las claves salen de las cadenas C que cargan los generadores de atributos (IL2CPP v24).
-Uso: cms_schema.py <dump.cs> <libil2cpp.so> <salida.json>"""
+"""CMS schema from the dump: [CMSGroup] groups and [CMSField]/[CMSReference]/[CMSDefault]/... fields of each class.
+The keys come from the C strings loaded by the attribute generators (IL2CPP v24).
+Usage: cms_schema.py <dump.cs> <libil2cpp.so> <output.json>"""
 import sys, re, struct, json
 dump, so, outp = sys.argv[1:4]
 d = open(so, 'rb').read()
@@ -22,7 +22,7 @@ def cstrings(a, maxn=24):
                     if e > p:
                         try: out.append(d[p:e].decode('utf-8'))
                         except UnicodeDecodeError: pass
-        if (x & 0xfc000000) == 0x14000000 or x == 0xd65f03c0: break   # b (tail) o ret
+        if (x & 0xfc000000) == 0x14000000 or x == 0xd65f03c0: break   # b (tail) or ret
     return out
 CMS_ATTRS = ('CMSField', 'CMSReference', 'CMSDefault', 'CMSOptional', 'CMSCollection', 'CMSArray', 'CMSDictionary', 'CMSEnum')
 classes = {}; cur = None; pend = []
@@ -38,7 +38,7 @@ for i, l in enumerate(L):
         cur = {'class': m.group(2), 'base': m.group(3), 'group': grp, 'fields': []}
         prev = classes.get(m.group(2))
         if prev is not None and (prev['group'] or prev['fields']):
-            classes[m.group(2) + '#' + str(i)] = cur   # homónima en otro namespace: no pisa a la del CMS
+            classes[m.group(2) + '#' + str(i)] = cur   # same name in another namespace: does not overwrite the CMS one
         else:
             classes[m.group(2)] = cur
         pend = []; continue
@@ -59,4 +59,4 @@ for k, v in classes.items():
     elif k != base: schema[k] = v
 json.dump(schema, open(outp, 'w'), indent=1, ensure_ascii=False)
 g = [v for v in schema.values() if v['group']]
-print(len(schema), 'clases con datos CMS;', len(g), 'grupos;', sum(len(v['fields']) for v in schema.values()), 'campos')
+print(len(schema), 'classes with CMS data;', len(g), 'groups;', sum(len(v['fields']) for v in schema.values()), 'fields')

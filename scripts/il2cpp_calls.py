@@ -1,5 +1,5 @@
-"""Pseudo-descompilado mínimo de métodos IL2CPP arm64: llamadas, textos y tipos referenciados, en orden.
-Uso: python3 -I il2cpp_calls.py <dir del volcado> <libil2cpp.so> <RVA hex> [<RVA hex> ...]"""
+"""Minimal pseudo-decompilation of IL2CPP arm64 methods: calls, strings and referenced types, in order.
+Usage: python3 -I il2cpp_calls.py <dump dir> <libil2cpp.so> <RVA hex> [<RVA hex> ...]"""
 import sys, json, re, subprocess, bisect, struct
 dump, so = sys.argv[1], sys.argv[2]
 sj = json.load(open(dump + '/script.json'))
@@ -40,4 +40,4 @@ for arg in sys.argv[3:]:
             if nm: print('    ->', nm[:90])
         elif op in ('b',) and args.startswith('0x'):
             t = int(args.split()[0], 16)
-            if t in names and not (a <= t < b): print('    => (salto)', names[t][:90])
+            if t in names and not (a <= t < b): print('    => (jump)', names[t][:90])

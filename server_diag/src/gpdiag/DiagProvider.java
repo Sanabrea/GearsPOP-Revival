@@ -19,13 +19,13 @@ import java.util.*;
 import javax.net.ssl.*;
 
 /**
- * Servidor de diagnóstico de Gears POP Revival (entrega 0).
- * Un ContentProvider se crea al iniciar el proceso de la app, antes de la Activity de Unity,
- * así que arranca los sockets sin tocar el código del juego.
- * Solo registra lo que pide el cliente (servicio, método, tamaño). No implementa lógica de juego:
- * a cada llamada gRPC responde UNIMPLEMENTED (12) para que el cliente falle rápido en vez de colgarse.
+ * Gears POP Revival diagnostic server (milestone 0).
+ * A ContentProvider is created when the app process starts, before the Unity Activity,
+ * so it starts the sockets without touching the game code.
+ * It only logs what the client asks for (service, method, size). It implements no game logic:
+ * every gRPC call gets UNIMPLEMENTED (12) so the client fails fast instead of hanging.
  *
- * Puertos en assets/diag/ports.txt, una línea por puerto: "<puerto> <tls|plain> <etiqueta>".
+ * Ports in assets/diag/ports.txt, one line per port: "<port> <tls|plain> <label>".
  */
 public class DiagProvider extends ContentProvider {
     static final String TAG = "GPDiag";
@@ -48,15 +48,15 @@ public class DiagProvider extends ContentProvider {
             File dir = ctx.getExternalFilesDir(null);
             if (dir == null) dir = ctx.getFilesDir();
             logFile = new File(dir, "gpdiag.log");
-        } catch (Throwable t) { Log.e(TAG, "sin archivo de log", t); }
-        log("=== GPDiag inicia, pid " + android.os.Process.myPid() + ", log en " + logFile);
+        } catch (Throwable t) { Log.e(TAG, "no log file", t); }
+        log("=== GPDiag starting, pid " + android.os.Process.myPid() + ", log at " + logFile);
         captureLogcat();
-        log("GPDiag versión " + VERSION);
+        log("GPDiag version " + VERSION);
         checkPatches(ctx);
         final Thread.UncaughtExceptionHandler prev = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler((th, ex) -> {
             StringWriter sw = new StringWriter(); ex.printStackTrace(new PrintWriter(sw));
-            log("CRASH Java en hilo " + th.getName() + ": " + sw);
+            log("Java CRASH in thread " + th.getName() + ": " + sw);
             if (prev != null) prev.uncaughtException(th, ex);
         });
         new Thread(() -> startAll(ctx), "gpdiag-main").start();
@@ -65,18 +65,18 @@ public class DiagProvider extends ContentProvider {
         return true;
     }
 
-    /** Android 11+: por qué murieron los procesos anteriores de la app (crash nativo, ANR, sistema, congelador…). */
+    /** Android 11+: why the app's previous processes died (native crash, ANR, system, freezer…). */
     static void exitReasons(Context ctx) {
-        if (android.os.Build.VERSION.SDK_INT < 30) { log("exit-info: requiere Android 11+"); return; }
+        if (android.os.Build.VERSION.SDK_INT < 30) { log("exit-info: requires Android 11+"); return; }
         try {
             android.app.ActivityManager am = (android.app.ActivityManager) ctx.getSystemService(Context.ACTIVITY_SERVICE);
             List<android.app.ApplicationExitInfo> list = am.getHistoricalProcessExitReasons(null, 0, 6);
             SimpleDateFormat f = new SimpleDateFormat("HH:mm:ss", Locale.US);
             log("exit-info: Android " + android.os.Build.VERSION.RELEASE + " (SDK " + android.os.Build.VERSION.SDK_INT + "), "
-                    + android.os.Build.MANUFACTURER + " " + android.os.Build.MODEL + ", " + list.size() + " salidas previas");
+                    + android.os.Build.MANUFACTURER + " " + android.os.Build.MODEL + ", " + list.size() + " previous exits");
             for (android.app.ApplicationExitInfo e : list) {
-                log("exit-info: pid " + e.getPid() + " a las " + f.format(new Date(e.getTimestamp()))
-                        + " motivo=" + e.getReason() + " estado=" + e.getStatus() + " importancia=" + e.getImportance()
+                log("exit-info: pid " + e.getPid() + " at " + f.format(new Date(e.getTimestamp()))
+                        + " reason=" + e.getReason() + " status=" + e.getStatus() + " importance=" + e.getImportance()
                         + " pss=" + e.getPss() / 1024 + "MB desc=" + e.getDescription());
                 if (e.getReason() == android.app.ApplicationExitInfo.REASON_CRASH_NATIVE
                         || e.getReason() == android.app.ApplicationExitInfo.REASON_ANR) {
@@ -88,16 +88,16 @@ public class DiagProvider extends ContentProvider {
                             byte[] b = new byte[8192]; int n; long tot = 0;
                             while ((n = in.read(b)) > 0 && tot < 2_000_000) { o.write(b, 0, n); tot += n; }
                         }
-                        log("exit-info: traza guardada en " + out.getName());
+                        log("exit-info: trace saved to " + out.getName());
                     }
                 }
             }
-            log("exit-info: motivos 1=EXIT_SELF 2=SIGNALED 3=LOW_MEMORY 4=CRASH 5=CRASH_NATIVE 6=ANR 7=INIT_FAILURE "
+            log("exit-info: reasons 1=EXIT_SELF 2=SIGNALED 3=LOW_MEMORY 4=CRASH 5=CRASH_NATIVE 6=ANR 7=INIT_FAILURE "
                     + "10=USER_REQUESTED 11=USER_STOPPED 13=OTHER 14=FREEZER");
         } catch (Throwable t) { log("exit-info ERROR: " + t); }
     }
 
-    /** Durante 90 s guarda cada 5 s la pila de los hilos "main" y "UnityMain", para ver dónde se cuelga el arranque. */
+    /** For 90 s, every 5 s, saves the stack of the "main" and "UnityMain" threads, to see where startup hangs. */
     static void watchdog() {
         Map<String, String> last = new HashMap<>();
         for (int i = 0; i < 18; i++) {
@@ -109,35 +109,35 @@ public class DiagProvider extends ContentProvider {
                 StackTraceElement[] st = e.getValue();
                 for (int k = 0; k < Math.min(st.length, 14); k++) sb.append("\n      at ").append(st[k]);
                 String s = sb.toString();
-                if (s.equals(last.get(name))) { log("[vigilante " + (i + 1) * 5 + "s] " + name + " " + e.getKey().getState() + " (igual que antes)"); continue; }
+                if (s.equals(last.get(name))) { log("[watchdog " + (i + 1) * 5 + "s] " + name + " " + e.getKey().getState() + " (same as before)"); continue; }
                 last.put(name, s);
-                log("[vigilante " + (i + 1) * 5 + "s] " + name + " " + e.getKey().getState() + s);
+                log("[watchdog " + (i + 1) * 5 + "s] " + name + " " + e.getKey().getState() + s);
             }
         }
     }
 
     static final String VERSION = "v26";
 
-    /** Comprueba en la libil2cpp.so instalada si están los parches (bytes en direcciones conocidas). */
+    /** Checks whether the installed libil2cpp.so has the patches (bytes at known addresses). */
     static void checkPatches(Context ctx) {
         String[][] checks = {
-            {"registro de excepción del CMS", "14F7BA8", "800240f9"},
-            {"asserts del parser -> log", "143AA7C", "22000014"},
-            {"sin Invoke de [CMSParseFunction]", "1E6BBC4", "e0031faa"},
-            {"sin Invoke de ParseListToDictionary", "1E6C6BC", "f3031faa"},
+            {"CMS exception logging", "14F7BA8", "800240f9"},
+            {"parser asserts -> log", "143AA7C", "22000014"},
+            {"no Invoke of [CMSParseFunction]", "1E6BBC4", "e0031faa"},
+            {"no Invoke of ParseListToDictionary", "1E6C6BC", "f3031faa"},
         };
         try (RandomAccessFile f = new RandomAccessFile(new File(ctx.getApplicationInfo().nativeLibraryDir, "libil2cpp.so"), "r")) {
             for (String[] c : checks) {
                 f.seek(Long.parseLong(c[1], 16)); byte[] b = new byte[4]; f.readFully(b);
                 StringBuilder h = new StringBuilder(); for (byte x : b) h.append(String.format("%02x", x & 0xff));
-                log("parche " + c[0] + ": " + (h.toString().equals(c[2]) ? "SÍ" : "NO (" + h + ")"));
+                log("patch " + c[0] + ": " + (h.toString().equals(c[2]) ? "YES" : "NO (" + h + ")"));
             }
-        } catch (Throwable t) { log("no pude revisar libil2cpp.so: " + t); }
+        } catch (Throwable t) { log("could not check libil2cpp.so: " + t); }
     }
 
     /**
-     * Guarda el logcat propio de la app (Android solo deja ver los logs del mismo UID) en un archivo por arranque.
-     * Primero vuelca el búfer "crash" (incluye el cierre del arranque anterior) y luego sigue en vivo.
+     * Saves the app's own logcat (Android only shows logs from the same UID) to one file per launch.
+     * First dumps the "crash" buffer (includes the end of the previous launch), then keeps following live.
      */
     void captureLogcat() {
         if (logFile == null) return;
@@ -151,10 +151,10 @@ public class DiagProvider extends ContentProvider {
                 p.waitFor();
                 if (prevCrash.length() == 0) prevCrash.delete();
                 File live = new File(dir, "logcat_" + stamp + ".txt");
-                log("logcat en vivo -> " + live.getName());
+                log("live logcat -> " + live.getName());
                 new ProcessBuilder("logcat", "-b", "main,system,crash", "-v", "threadtime")
                         .redirectErrorStream(true).redirectOutput(live).start();
-            } catch (Throwable t) { log("ERROR capturando logcat: " + t); }
+            } catch (Throwable t) { log("ERROR capturing logcat: " + t); }
         }, "gpdiag-logcat").start();
     }
 
@@ -170,18 +170,18 @@ public class DiagProvider extends ContentProvider {
             SSLContext sc = SSLContext.getInstance("TLS");
             sc.init(kmf.getKeyManagers(), null, null);
             sslf = sc.getServerSocketFactory();
-        } catch (Throwable t) { log("ERROR cargando llave TLS: " + t); }
+        } catch (Throwable t) { log("ERROR loading TLS key: " + t); }
 
         List<String> lines = new ArrayList<>();
         try (BufferedReader r = new BufferedReader(new InputStreamReader(ctx.getAssets().open("diag/ports.txt")))) {
             String l; while ((l = r.readLine()) != null) { l = l.trim(); if (!l.isEmpty() && !l.startsWith("#")) lines.add(l); }
-        } catch (IOException e) { log("ERROR leyendo ports.txt: " + e); }
-        try { ctx.getAssets().open("diag/cms_var_0.json").close(); Catapult.bisect = true; log("modo BISECCIÓN del CMS (8 variantes)"); }
-        catch (IOException e) { /* sin bisección */ }
-        try { Catapult.loadResponses(ctx.getAssets().open("diag/responses.tsv")); log("respuestas del gateway: " + Catapult.RESPONSES.size()); }
-        catch (IOException e) { log("sin diag/responses.tsv: " + e); }
+        } catch (IOException e) { log("ERROR reading ports.txt: " + e); }
+        try { ctx.getAssets().open("diag/cms_var_0.json").close(); Catapult.bisect = true; log("CMS BISECTION mode (8 variants)"); }
+        catch (IOException e) { /* no bisection */ }
+        try { Catapult.loadResponses(ctx.getAssets().open("diag/responses.tsv")); log("gateway responses: " + Catapult.RESPONSES.size()); }
+        catch (IOException e) { log("no diag/responses.tsv: " + e); }
         try { Catapult.loadTags(ctx.getAssets().open("diag/tags.tsv")); log("tags Catapult: " + Catapult.TAGS.size()); }
-        catch (IOException e) { log("sin diag/tags.tsv: " + e); }
+        catch (IOException e) { log("no diag/tags.tsv: " + e); }
 
         for (String l : lines) {
             String[] p = l.split("\\s+");
@@ -203,18 +203,18 @@ public class DiagProvider extends ContentProvider {
                     SSLParameters sp = s.getSSLParameters();
                     sp.setApplicationProtocols(new String[]{"h2", "http/1.1"});
                     s.setSSLParameters(sp);
-                } catch (Throwable t) { log("[" + label + "] sin ALPN en este Android: " + t); }
+                } catch (Throwable t) { log("[" + label + "] no ALPN on this Android: " + t); }
                 ss = s;
             } else {
                 ss = new ServerSocket(port, 50, any);
             }
-            log("[" + label + "] escuchando en " + port + (tls ? " (TLS)" : " (texto plano)"));
+            log("[" + label + "] listening on " + port + (tls ? " (TLS)" : " (plaintext)"));
             while (true) {
                 Socket c = ss.accept();
                 new Thread(() -> handle(c, label), "gpdiag-conn").start();
             }
         } catch (Throwable t) {
-            log("[" + label + "] ERROR al escuchar en " + port + ": " + t);
+            log("[" + label + "] ERROR listening on " + port + ": " + t);
         }
     }
 
@@ -225,12 +225,12 @@ public class DiagProvider extends ContentProvider {
             String alpn = "";
             if (c instanceof SSLSocket) {
                 SSLSocket s = (SSLSocket) c;
-                // En Android (Conscrypt) el ALPN del SSLServerSocket no se hereda: se pone en cada socket aceptado.
+                // On Android (Conscrypt) the SSLServerSocket's ALPN is not inherited: it is set on each accepted socket.
                 try {
                     SSLParameters sp = s.getSSLParameters();
                     sp.setApplicationProtocols(new String[]{"h2", "http/1.1"});
                     s.setSSLParameters(sp);
-                } catch (Throwable t) { log(who + " no se pudo poner ALPN: " + t); }
+                } catch (Throwable t) { log(who + " could not set ALPN: " + t); }
                 s.startHandshake();
                 try { alpn = s.getApplicationProtocol(); } catch (Throwable ignored) { }
                 String sni = "";
@@ -241,7 +241,7 @@ public class DiagProvider extends ContentProvider {
                 } catch (Throwable ignored) { }
                 log(who + " TLS ok " + s.getSession().getProtocol() + " alpn=" + alpn + " sni=" + sni);
             } else {
-                log(who + " conexión");
+                log(who + " connection");
             }
             BufferedInputStream in = new BufferedInputStream(c.getInputStream());
             OutputStream out = c.getOutputStream();
@@ -255,7 +255,7 @@ public class DiagProvider extends ContentProvider {
                 http1(who, in, out);
             }
         } catch (Throwable t) {
-            log(who + " cerrada: " + t);
+            log(who + " closed: " + t);
         } finally {
             try { c.close(); } catch (IOException ignored) { }
         }
@@ -277,10 +277,10 @@ public class DiagProvider extends ContentProvider {
 
     static Context appCtx;
 
-    /** CMS: primero files/cms.json del teléfono (para probar sin reinstalar), si no assets/diag/cms.json. */
+    /** CMS: first files/cms.json on the phone (to test without reinstalling), otherwise assets/diag/cms.json. */
     static byte[] loadCms() { return loadCms(true); }
 
-    /** ETag del CMS: cambia cuando cambia el contenido, así el cliente lo vuelve a descargar. */
+    /** CMS ETag: changes when the content changes, so the client downloads it again. */
     static String cmsEtag() {
         byte[] b = loadCms(false);
         if (b == null) return "gprevival-0";
@@ -294,7 +294,7 @@ public class DiagProvider extends ContentProvider {
                 InputStream bi = appCtx.getAssets().open("diag/cms_var_" + Catapult.bisectV + ".json");
                 ByteArrayOutputStream bb = new ByteArrayOutputStream(); byte[] bbuf = new byte[65536]; int bn;
                 try (InputStream i = bi) { while ((bn = i.read(bbuf)) > 0) bb.write(bbuf, 0, bn); }
-                if (verbose) log("CMS servido: BISECCIÓN variante " + Catapult.bisectV + ", " + bb.size() + " bytes");
+                if (verbose) log("CMS served: BISECTION variant " + Catapult.bisectV + ", " + bb.size() + " bytes");
                 return bb.toByteArray();
             }
             File ext = logFile == null ? null : new File(logFile.getParentFile(), "cms.json");
@@ -302,9 +302,9 @@ public class DiagProvider extends ContentProvider {
             ByteArrayOutputStream b = new ByteArrayOutputStream();
             byte[] buf = new byte[65536]; int n;
             try (InputStream i = in) { while ((n = i.read(buf)) > 0) b.write(buf, 0, n); }
-            if (verbose) log("CMS servido desde " + ((ext != null && ext.isFile()) ? ext.getName() + " (teléfono)" : "assets/diag/cms.json") + ", " + b.size() + " bytes");
+            if (verbose) log("CMS served from " + ((ext != null && ext.isFile()) ? ext.getName() + " (phone)" : "assets/diag/cms.json") + ", " + b.size() + " bytes");
             return b.toByteArray();
-        } catch (Throwable t) { log("sin CMS para servir: " + t); return null; }
+        } catch (Throwable t) { log("no CMS to serve: " + t); return null; }
     }
 
     void http1(String who, InputStream in, OutputStream out) throws IOException {
@@ -323,8 +323,8 @@ public class DiagProvider extends ContentProvider {
             }
             long skipped = 0;
             while (skipped < len) { long s = in.skip(len - skipped); if (s <= 0) break; skipped += s; }
-            log(who + " HTTP " + req + " host=" + host + " cuerpo=" + len + " ua=" + ua);
-            log(who + "   encabezados" + all);
+            log(who + " HTTP " + req + " host=" + host + " body=" + len + " ua=" + ua);
+            log(who + "   headers" + all);
             if (req.startsWith("GET /cms/content")) {
                 byte[] cms = loadCms();
                 if (cms != null) {
@@ -334,14 +334,14 @@ public class DiagProvider extends ContentProvider {
                     continue;
                 }
             }
-            byte[] body = "gpdiag: sin datos todavia\n".getBytes(StandardCharsets.US_ASCII);
+            byte[] body = "gpdiag: no data yet\n".getBytes(StandardCharsets.US_ASCII);
             out.write(("HTTP/1.1 404 Not Found\r\nContent-Type: text/plain\r\nContent-Length: " + body.length + "\r\n\r\n").getBytes(StandardCharsets.US_ASCII));
             out.write(body);
             out.flush();
         }
     }
 
-    /** HTTP/2 mínimo: solo lo necesario para leer encabezados gRPC y contestar UNIMPLEMENTED. */
+    /** Minimal HTTP/2: only what is needed to read gRPC headers and answer UNIMPLEMENTED. */
     static class H2 {
         final String who; final DataInputStream in; final OutputStream out;
         final Hpack hpack = new Hpack();
@@ -352,7 +352,7 @@ public class DiagProvider extends ContentProvider {
         static final String CATAPULT_PATH = "/GrpcTransport/raw";
         H2(String who, InputStream in, OutputStream out) { this.who = who; this.in = new DataInputStream(in); this.out = out; }
 
-        /** Envía un mensaje gRPC por un stream abierto (encabezados de respuesta la primera vez). */
+        /** Sends a gRPC message on an open stream (response headers the first time). */
         void sendGrpc(int stream, byte[] msg) throws IOException {
             if (headersSent.add(stream)) {
                 ByteArrayOutputStream b = new ByteArrayOutputStream();
@@ -364,22 +364,22 @@ public class DiagProvider extends ContentProvider {
             d[1] = (byte) (msg.length >>> 24); d[2] = (byte) (msg.length >>> 16); d[3] = (byte) (msg.length >>> 8); d[4] = (byte) msg.length;
             System.arraycopy(msg, 0, d, 5, msg.length);
             frame(0x0, 0, stream, d);
-            log(who + " -> enviado gRPC stream=" + stream + " bytes=" + msg.length);
+            log(who + " -> sent gRPC stream=" + stream + " bytes=" + msg.length);
         }
 
-        /** El cliente cerró su lado: trailers con grpc-status 0. */
+        /** The client closed its side: trailers with grpc-status 0. */
         void closeOk(int stream) throws IOException {
             ByteArrayOutputStream b = new ByteArrayOutputStream();
             if (headersSent.add(stream)) { b.write(0x88); lit(b, "content-type", "application/grpc"); }
             lit(b, "grpc-status", "0");
             frame(0x1, 0x4 | 0x1, stream, b.toByteArray());
-            log(who + " stream " + stream + " cerrado por el cliente");
+            log(who + " stream " + stream + " closed by the client");
             paths.remove(stream); bufs.remove(stream);
         }
 
         void run() throws IOException {
             byte[] pre = new byte[24]; in.readFully(pre);
-            frame(0x4, 0, 0, new byte[0]); // SETTINGS vacío
+            frame(0x4, 0, 0, new byte[0]); // empty SETTINGS
             ByteArrayOutputStream hdrBuf = null; int hdrStream = 0; int hdrFlags = 0;
             while (true) {
                 int len = (in.readUnsignedByte() << 16) | (in.readUnsignedByte() << 8) | in.readUnsignedByte();
@@ -395,7 +395,7 @@ public class DiagProvider extends ContentProvider {
                         if (len > 0) { windowUpdate(0, len); windowUpdate(stream, len); }
                         String path = paths.get(stream);
                         if (CATAPULT_PATH.equals(path)) {
-                            // Transporte duplex de Catapult: se juntan los mensajes gRPC y se contestan sin cerrar el stream.
+                            // Catapult duplex transport: gRPC messages are accumulated and answered without closing the stream.
                             ByteArrayOutputStream buf = bufs.computeIfAbsent(stream, k -> new ByteArrayOutputStream());
                             buf.write(p, off, dlen);
                             byte[] all = buf.toByteArray(); int pos = 0;
@@ -415,7 +415,7 @@ public class DiagProvider extends ContentProvider {
                             for (int i = off; i < off + Math.min(dlen, 48); i++) hx.append(String.format("%02x", p[i] & 0xff));
                             log(who + " DATA stream=" + stream + " " + paths.getOrDefault(stream, "?") + " bytes=" + dlen + " hex=" + hx + (dlen > 48 ? "…" : ""));
                         }
-                        // Rutas desconocidas: se responde UNIMPLEMENTED tras el primer mensaje.
+                        // Unknown paths: UNIMPLEMENTED is returned after the first message.
                         if (paths.containsKey(stream) && (dlen > 0 || (flags & 0x1) != 0)) finish(stream);
                         break;
                     }
@@ -435,7 +435,7 @@ public class DiagProvider extends ContentProvider {
                     }
                     case 0x4: if ((flags & 0x1) == 0) frame(0x4, 0x1, 0, new byte[0]); break; // SETTINGS -> ACK
                     case 0x6: if ((flags & 0x1) == 0) frame(0x6, 0x1, 0, p); break;           // PING -> PONG
-                    case 0x7: log(who + " GOAWAY recibido"); return;
+                    case 0x7: log(who + " GOAWAY received"); return;
                     case 0x3: log(who + " RST_STREAM " + stream); break;
                     default: break;
                 }
@@ -444,7 +444,7 @@ public class DiagProvider extends ContentProvider {
 
         void headers(int stream, byte[] block, int flags) throws IOException {
             List<String[]> hs;
-            try { hs = hpack.decode(block); } catch (Throwable t) { log(who + " HPACK no decodificado: " + t); hs = new ArrayList<>(); }
+            try { hs = hpack.decode(block); } catch (Throwable t) { log(who + " HPACK not decoded: " + t); hs = new ArrayList<>(); }
             StringBuilder extra = new StringBuilder();
             String path = "?", auth = "";
             for (String[] h : hs) {
@@ -455,7 +455,7 @@ public class DiagProvider extends ContentProvider {
                     extra.append(' ').append(h[0]).append('=').append(h[1].length() > 80 ? h[1].substring(0, 80) + "…(" + h[1].length() + ")" : h[1]);
             }
             paths.put(stream, path);
-            log(who + " gRPC inicia " + path + " authority=" + auth + extra);
+            log(who + " gRPC start " + path + " authority=" + auth + extra);
             if ((flags & 0x1) != 0) finish(stream);
         }
 
@@ -463,14 +463,14 @@ public class DiagProvider extends ContentProvider {
             String path = paths.getOrDefault(stream, "?");
             long bytes = sizes.getOrDefault(stream, 0L);
             String[] sm = path.replaceFirst("^/", "").split("/", 2);
-            log(who + " gRPC LLAMADA servicio=" + sm[0] + " metodo=" + (sm.length > 1 ? sm[1] : "?")
-                    + " bytes=" + bytes + " (mensaje ≈ " + Math.max(0, bytes - 5) + ")");
-            // Respuesta: HEADERS (:status 200, content-type) y trailers con grpc-status 12 en un solo bloque (Trailers-Only).
+            log(who + " gRPC CALL service=" + sm[0] + " method=" + (sm.length > 1 ? sm[1] : "?")
+                    + " bytes=" + bytes + " (message ≈ " + Math.max(0, bytes - 5) + ")");
+            // Response: HEADERS (:status 200, content-type) and trailers with grpc-status 12 in a single block (Trailers-Only).
             ByteArrayOutputStream b = new ByteArrayOutputStream();
-            b.write(0x88); // :status 200 (índice estático 8)
+            b.write(0x88); // :status 200 (static index 8)
             lit(b, "content-type", "application/grpc");
             lit(b, "grpc-status", "12");
-            lit(b, "grpc-message", "gpdiag sin implementar");
+            lit(b, "grpc-message", "gpdiag not implemented");
             frame(0x1, 0x4 | 0x1, stream, b.toByteArray());
             paths.remove(stream); sizes.remove(stream);
         }
@@ -495,7 +495,7 @@ public class DiagProvider extends ContentProvider {
         }
     }
 
-    // ContentProvider sin datos.
+    // ContentProvider with no data.
     @Override public Cursor query(Uri u, String[] p, String s, String[] a, String o) { return null; }
     @Override public String getType(Uri u) { return null; }
     @Override public Uri insert(Uri u, ContentValues v) { return null; }

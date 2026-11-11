@@ -1,6 +1,6 @@
-"""Esquema protobuf de los DTO del gateway, sacado de GeneratedProtoSerializer.Write(T) (números de campo y getter)
-y de las propiedades de cada clase en dump.cs (tipos).
-Uso como módulo: Schema(dump_dir, libil2cpp).fields('AllPlayerDataDto') -> [(num, prop, tipo, llamada)]"""
+"""Protobuf schema of the gateway DTOs, taken from GeneratedProtoSerializer.Write(T) (field numbers and getter)
+and from each class's properties in dump.cs (types).
+Module usage: Schema(dump_dir, libil2cpp).fields('AllPlayerDataDto') -> [(num, prop, type, call)]"""
 import json, re, subprocess, bisect
 
 

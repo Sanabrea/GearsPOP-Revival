@@ -5,10 +5,10 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 /**
- * Protocolo Catapult (protobuf-net con herencia) sobre /GrpcTransport/raw.
- * Message = { 1: Headers (repetido MessageHeader), <etiqueta del subtipo>: cuerpo }.
+ * Catapult protocol (protobuf-net with inheritance) over /GrpcTransport/raw.
+ * Message = { 1: Headers (repeated MessageHeader), <subtype tag>: body }.
  * MessageHeader -> OperationHeader (51110556) = { 1: RequestId (bcl.Guid), 2: Type (1 OneWay, 2 Request, 3 Reply) }.
- * Ver analysis/protocolo/.
+ * See analysis/protocol/.
  */
 class Catapult {
     static final int MSG_LOGIN_REQUEST = 71269765;          // Message<LoginRequest> { 1: LoginRequest }
@@ -21,7 +21,7 @@ class Catapult {
     static final int OP_REPLY = 3;
 
     static Map<Integer, String> TAGS = new HashMap<>();
-    /** etiqueta de la petición -> {etiqueta del Result, cuerpo, nombre} */
+    /** request tag -> {Result tag, body, name} */
     static Map<Integer, Object[]> RESPONSES = new HashMap<>();
 
     static void loadResponses(InputStream in) {
@@ -32,12 +32,12 @@ class Catapult {
                 if (p.length < 3 || !p[0].matches("\\d+")) continue;
                 RESPONSES.put(Integer.parseInt(p[0]), new Object[]{Integer.parseInt(p[1]), android.util.Base64.decode(p[2], 0), p.length > 3 ? p[3] : ""});
             }
-        } catch (Exception e) { DiagProvider.log("responses.tsv no cargado: " + e); }
+        } catch (Exception e) { DiagProvider.log("responses.tsv not loaded: " + e); }
     }
     static boolean bisect = false;
     static int bisectV = 0, bisectMatches = 0;
     static final int ERR_CONTENT_UPDATE_REQUIRED = 471;   // CatapultStatusCode.ContentUpdateRequired
-    static final String CONTENT_URL = "http://127.0.0.1:8080/cms/content"; // HTTP plano: el WebClient de Mono no negocia TLS 1.2 con Android 16
+    static final String CONTENT_URL = "http://127.0.0.1:8080/cms/content"; // plain HTTP: Mono's WebClient cannot negotiate TLS 1.2 with Android 16
     static final String CONTENT_VERSION = "1";
 
     static void loadTags(InputStream in) {
@@ -48,12 +48,12 @@ class Catapult {
                 String[] p = l.split("\t");
                 if (p.length >= 2 && p[0].matches("\\d+")) TAGS.put(Integer.parseInt(p[0]), p[1]);
             }
-        } catch (Exception e) { DiagProvider.log("tags.tsv no cargado: " + e); }
+        } catch (Exception e) { DiagProvider.log("tags.tsv not loaded: " + e); }
     }
 
-    static String name(int tag) { String n = TAGS.get(tag); return n != null ? n : ("tipo#" + tag); }
+    static String name(int tag) { String n = TAGS.get(tag); return n != null ? n : ("type#" + tag); }
 
-    /** Campo protobuf crudo. */
+    /** Raw protobuf field. */
     static class Field { int num, wt; long v; byte[] b; }
 
     static List<Field> parse(byte[] d) {
@@ -67,7 +67,7 @@ class Catapult {
                 case 1: f.b = Arrays.copyOfRange(d, p[0], p[0] + 8); p[0] += 8; break;
                 case 2: { int len = (int) varint(d, p); f.b = Arrays.copyOfRange(d, p[0], p[0] + len); p[0] += len; break; }
                 case 5: f.b = Arrays.copyOfRange(d, p[0], p[0] + 4); p[0] += 4; break;
-                default: throw new IllegalStateException("tipo de cable " + f.wt);
+                default: throw new IllegalStateException("wire type " + f.wt);
             }
             out.add(f);
         }
@@ -90,7 +90,7 @@ class Catapult {
         return sb + (b.length > max ? "…" : "");
     }
 
-    /** Escritor protobuf mínimo. */
+    /** Minimal protobuf writer. */
     static class W {
         final ByteArrayOutputStream o = new ByteArrayOutputStream();
         W varint(long v) { while ((v & ~0x7fL) != 0) { o.write((int) ((v & 0x7f) | 0x80)); v >>>= 7; } o.write((int) v); return this; }
@@ -102,12 +102,12 @@ class Catapult {
     }
 
     /**
-     * Procesa un mensaje Catapult del cliente. Devuelve las respuestas (mensajes Catapult sin el prefijo gRPC).
+     * Handles a Catapult message from the client. Returns the replies (Catapult messages without the gRPC prefix).
      */
     static List<byte[]> handle(String who, String path, byte[] msg) {
         List<byte[]> replies = new ArrayList<>();
         List<Field> top;
-        try { top = parse(msg); } catch (Throwable t) { DiagProvider.log(who + " protobuf inválido: " + t + " hex=" + hex(msg, 256)); return replies; }
+        try { top = parse(msg); } catch (Throwable t) { DiagProvider.log(who + " invalid protobuf: " + t + " hex=" + hex(msg, 256)); return replies; }
 
         byte[] guid = null; long opType = -1; int bodyTag = -1; byte[] body = null;
         StringBuilder hdrs = new StringBuilder();
@@ -130,11 +130,11 @@ class Catapult {
             for (Field f : parse(body)) if (f.num == 1 && f.wt == 2) lr = parse(f.b);
             if (lr != null) {
                 String tok = str(lr, 2);
-                DiagProvider.log(who + "   LoginRequest IdentityType=" + str(lr, 1) + " IdentityToken=" + (tok == null ? null : tok.length() + " caracteres")
+                DiagProvider.log(who + "   LoginRequest IdentityType=" + str(lr, 1) + " IdentityToken=" + (tok == null ? null : tok.length() + " chars")
                         + " ClientVersion=" + str(lr, 3) + " ContentETag=" + str(lr, 4) + " Platform=" + str(lr, 5));
             }
-            // Flujo original de Catapult: si el ETag del cliente no coincide, se responde ContentUpdateRequired (471)
-            // con ContentUrl/ContentEtag; ContentUpdateStep descarga el CMS, guarda el ETag y repite el login.
+            // Original Catapult flow: if the client's ETag does not match, reply ContentUpdateRequired (471)
+            // with ContentUrl/ContentEtag; ContentUpdateStep downloads the CMS, stores the ETag and retries the login.
             String clientEtag = lr == null ? null : str(lr, 4);
             String CONTENT_ETAG = DiagProvider.cmsEtag();
             byte[] session = new W()
@@ -147,13 +147,13 @@ class Catapult {
             W result = new W().bytes(1, session);
             if (!CONTENT_ETAG.equals(clientEtag)) {
                 result.bytes(2, new W().u(1, ERR_CONTENT_UPDATE_REQUIRED).str(2, "ContentUpdateRequired")
-                        .str(3, "gprevival: descargar CMS").done());
-                DiagProvider.log(who + "   -> Result<SessionTokenResponse> con Error 471 ContentUpdateRequired (ETag cliente=" + clientEtag + ")");
+                        .str(3, "gprevival: download CMS").done());
+                DiagProvider.log(who + "   -> Result<SessionTokenResponse> with Error 471 ContentUpdateRequired (client ETag=" + clientEtag + ")");
             } else {
-                DiagProvider.log(who + "   -> Result<SessionTokenResponse> OK (ETag al día)");
+                DiagProvider.log(who + "   -> Result<SessionTokenResponse> OK (ETag up to date)");
                 if (bisect) {
                     bisectMatches++;
-                    if (bisectMatches == 2) DiagProvider.log("BISECCIÓN: el parseo de ESTE intento usa la variante " + bisectV);
+                    if (bisectMatches == 2) DiagProvider.log("BISECTION: THIS attempt's parse uses variant " + bisectV);
                     if (bisectMatches >= 2 && bisectV < 7) { bisectV++; bisectMatches = 0; }
                 }
             }
@@ -164,17 +164,17 @@ class Catapult {
             replies.add(reply(guid, RESULT_AUTH_RESPONSE, new W().bytes(1, new W().str(1, "gprevival-local-1").done()).done()));
             DiagProvider.log(who + "   -> Result<AuthenticationResponse> (UserId gprevival-local-1)");
         } else if (RESPONSES.containsKey(bodyTag)) {
-            // Respuestas por defecto armadas offline (scripts/build_responses.py -> assets/diag/responses.tsv)
+            // Default responses built offline (scripts/build_responses.py -> assets/diag/responses.tsv)
             Object[] r = RESPONSES.get(bodyTag);
             replies.add(reply(guid, (Integer) r[0], (byte[]) r[1]));
             DiagProvider.log(who + "   -> " + name((Integer) r[0]) + " (" + ((byte[]) r[1]).length + " bytes, " + r[2] + ")");
         } else {
-            DiagProvider.log(who + "   sin respuesta todavía; cuerpo hex=" + hex(body != null ? body : msg, 256));
+            DiagProvider.log(who + "   no response yet; body hex=" + hex(body != null ? body : msg, 256));
         }
         return replies;
     }
 
-    /** Message con OperationHeader Reply (mismo RequestId) y el cuerpo bajo la etiqueta del subtipo. */
+    /** Message with an OperationHeader Reply (same RequestId) and the body under the subtype tag. */
     static byte[] reply(byte[] guid, int bodyTag, byte[] body) {
         W op = new W();
         if (guid != null) op.bytes(1, guid);

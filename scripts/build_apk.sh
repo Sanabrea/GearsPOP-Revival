@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Reconstruye build/GearsPOP_diag.apk desde build/work/dec (con libunity/libil2cpp ya parcheadas) y el servidor en server_diag/.
+# Rebuilds build/GearsPOP_diag.apk from build/work/dec (with libunity/libil2cpp already patched) and the server in server_diag/.
 set -e
 cd "$(dirname "$0")/.."
 SDK=/opt/homebrew/share/android-commandlinetools; AJ=$SDK/platforms/android-34/android.jar; BT=$SDK/build-tools/34.0.0
@@ -11,4 +11,4 @@ rm -f $W/unsigned.apk $W/aligned.apk; apktool b -o $W/unsigned.apk $W/dec 2>&1 |
 cp $O/dex/classes.dex $W/classes2.dex; (cd $W && zip -q unsigned.apk classes2.dex)
 $BT/zipalign -f -p 4 $W/unsigned.apk $W/aligned.apk
 $BT/apksigner sign --ks build/keys/sign.jks --ks-pass pass:gpdiag-sign --out build/GearsPOP_diag.apk $W/aligned.apk
-$BT/apksigner verify build/GearsPOP_diag.apk && echo "APK firmado: build/GearsPOP_diag.apk"
+$BT/apksigner verify build/GearsPOP_diag.apk && echo "APK signed: build/GearsPOP_diag.apk"

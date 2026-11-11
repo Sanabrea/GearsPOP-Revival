@@ -1,5 +1,5 @@
-"""Métodos que referencian un metadato IL2CPP (TypeInfo, MethodInfo o string) por nombre exacto.
-Uso: il2cpp_metarefs.py <volcado> <so> "<nombre en ScriptMetadata/ScriptMetadataMethod>" ..."""
+"""Methods that reference an IL2CPP metadata item (TypeInfo, MethodInfo or string) by exact name.
+Usage: il2cpp_metarefs.py <dump> <so> "<name in ScriptMetadata/ScriptMetadataMethod>" ..."""
 import sys, json, struct, bisect, array
 sj = json.load(open(sys.argv[1] + '/script.json')); names = {m['Address']: m['Name'] for m in sj['ScriptMethod']}; ms = sorted(names)
 meta = {}
@@ -18,9 +18,9 @@ for k in range(n):
 w = array.array('I'); w.frombytes(d[:0x3200000])
 for want in sys.argv[3:]:
     ma = meta.get(want)
-    if ma is None: print("no encontrado:", want); continue
+    if ma is None: print("not found:", want); continue
     cands = set(slots.get(ma, [])) | {ma}
-    print(f"== {want} (casillas {[hex(c) for c in cands]})")
+    print(f"== {want} (slots {[hex(c) for c in cands]})")
     hits = set()
     for i in range(0x100000 // 4, len(w)):
         x = w[i]

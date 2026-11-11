@@ -1,0 +1,14 @@
+== Mediatonic.CMS.CMSData$$.ctor (0x16ae918-0x16aea78)
+    Mediatonic.CMS.CMSData.<CMSData>c__AnonStorey0_TypeInfo
+    -> System.Object$$.ctor
+    -> System.Object$$.ctor
+    -> Mediatonic.Tools.ParsingUtils.ParsingUtils$$get_IsInitialised
+    -> Mediatonic.Tools.ParsingUtils.ParsingUtils$$Init
+    Mediatonic.Tools.ParsingUtils.CMSReferenceCache_TypeInfo
+    -> Mediatonic.Tools.ParsingUtils.CMSReferenceCache$$.ctor
+    -> Mediatonic.CMS.CMSData$$ParseDataGroups
+    System.Action_TypeInfo
+    m:Method$Mediatonic.CMS.CMSData.<CMSData>c__AnonStorey0.<>m__0()
+    -> System.Action$$.ctor
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    => (salto) Mediatonic.Tools.ParsingUtils.Parsing$$ParseDictionariesWithMultiThreads

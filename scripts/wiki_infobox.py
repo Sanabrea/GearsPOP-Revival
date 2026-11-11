@@ -1,3 +1,6 @@
+"""Parse Gears POP infoboxes from w2022__*.txt pages (output of wiki_extract.py) into a CSV.
+Usage: wiki_infobox.py PAGES_DIR OUT_CSV
+"""
 import sys,os,re,csv,glob
 pages=sorted(glob.glob(os.path.join(sys.argv[1],"w2022__*.txt")))
 rows=[];keys=[]
@@ -16,6 +19,6 @@ for p in pages:
 w=csv.DictWriter(open(sys.argv[2],"w",newline=""),fieldnames=keys); w.writeheader(); [w.writerow(r) for r in rows]
 cols=["title1","role","rarity","power_cost","hit_points","damage","damage_per_second","attack_speed_(secs)","speed","range","target_type","damage_radius","capture_strength","units","skill"]
 cols=[c for c in cols if c in keys]+[k for k in keys if k not in cols]
-print(len(rows),"pins | campos:",keys)
+print(len(rows),"pins | fields:",keys)
 print(" | ".join(c.replace("attack_speed_(secs)","atk_s").replace("damage_per_second","dps").replace("power_cost","cost").replace("hit_points","hp").replace("title1","pin") for c in cols))
 for r in rows: print(" | ".join(r.get(c,"-") for c in cols))

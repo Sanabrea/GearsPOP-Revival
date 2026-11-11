@@ -1,3 +1,6 @@
+"""List YouTube search results (video id, title, channel, length, date, views). Hits the network.
+Usage: yt.py QUERY [QUERY ...]
+"""
 import re,sys,json,urllib.request,urllib.parse
 seen=set()
 for q in sys.argv[1:]:

@@ -1,0 +1,4 @@
+subjectAltName=IP:127.0.0.1,DNS:localhost,DNS:login-production.moncton.oncatapult.com,DNS:gateway-production.moncton.oncatapult.com,DNS:mpgateways-production.moncton.oncatapult.com,DNS:content.gamefuel.info,DNS:assets.gamefuel.info
+basicConstraints=CA:FALSE
+keyUsage=digitalSignature,keyEncipherment
+extendedKeyUsage=serverAuth

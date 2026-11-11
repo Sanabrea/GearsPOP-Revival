@@ -1,0 +1,3 @@
+== "singleton" (casillas ['0x3101958', '0x3464df0', '0x3295aa8'])
+   Mediatonic.CMS.CMSData$$ParseDataGroups
+   Mediatonic.Moncton.Network.RemoteServices.Player.PlayerRemoteService.GearPacksRemoteService$$TryGetFirstWinActiveEvent

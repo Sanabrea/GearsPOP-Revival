@@ -1,4 +1,4 @@
-"""Etiquetas ProtoInclude de un GeneratedProtoSerializer.Write(T): tag -> clase."""
+"""ProtoInclude tags of a GeneratedProtoSerializer.Write(T): tag -> class."""
 import sys, json, re, subprocess, bisect
 dump, so, start = sys.argv[1], sys.argv[2], int(sys.argv[3], 16)
 sj = json.load(open(dump + '/script.json'))
@@ -40,7 +40,7 @@ for a, op, args in ins:
         rr, v = re.match(r'(x\d+), (0x[0-9a-f]+)', args).groups(); page[rr] = int(v, 16)
     elif op == 'ldr':
         mm = re.match(r'(x\d+), \[(x\d+), #(0x[0-9a-f]+|\d+)\]', args)
-        # solo el patrón adrp xN ; ldr xN, [xN, #off] (la casilla del TypeInfo); luego la página deja de valer
+        # only the adrp xN ; ldr xN, [xN, #off] pattern (the TypeInfo slot); after that the page is no longer valid
         if mm and mm.group(1) == mm.group(2) and mm.group(2) in page:
             ad = page.pop(mm.group(2)) + int(mm.group(3), 0)
             if ad in meta: cur = meta[ad]

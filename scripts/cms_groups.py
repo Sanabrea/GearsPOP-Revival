@@ -1,5 +1,5 @@
-"""Nombre de grupo CMS de cada clase [CMSGroup]: lee la cadena C que el generador de atributos pasa a CMSGroup..ctor.
-Uso: cms_groups.py <dump.cs> <libil2cpp.so>  -> TSV: grupo, clase"""
+"""CMS group name of each [CMSGroup] class: reads the C string the attribute generator passes to CMSGroup..ctor.
+Usage: cms_groups.py <dump.cs> <libil2cpp.so>  -> TSV: group, class"""
 import sys, re, struct
 dump, so = sys.argv[1], sys.argv[2]
 d = open(so, 'rb').read()

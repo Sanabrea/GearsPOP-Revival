@@ -1,32 +1,32 @@
-"""Parche de libunity.so (Unity 2018.4.12f1, arm64) para el crash "Using memoryadresses from more that 16GB of memory".
+"""Patch for libunity.so (Unity 2018.4.12f1, arm64) for the "Using memoryadresses from more that 16GB of memory" crash.
 
-Unity guarda qué memoria es suya en una tabla con 5 casillas indexadas por (dirección >> 32), o sea 4 GB por casilla.
-En Android 16 el asignador del sistema reparte la memoria en más de 5 zonas de 4 GB; Unity usa entonces la casilla -1
-(un contador), lo lee como puntero y truena con SIGSEGV.
+Unity tracks which memory is its own in a table with 5 slots indexed by (address >> 32), i.e. 4 GB per slot.
+On Android 16 the system allocator spreads memory over more than 5 zones of 4 GB; Unity then uses slot -1
+(a counter), reads it as a pointer and crashes with SIGSEGV.
 
-El parche cambia la clave a (dirección >> 35) y la tabla raíz de 128 a 1024 entradas (bits 25..34),
-con su contador en +0x2000. Así cada casilla cubre 32 GB y las 5 juntas 160 GB.
-Toca solo las 3 funciones de la tabla: consulta 0x7415b8, registro 0x741684 y baja 0x7418dc.
+The patch changes the key to (address >> 35) and the root table from 128 to 1024 entries (bits 25..34),
+with its counter at +0x2000. That way each slot covers 32 GB and the 5 together 160 GB.
+It only touches the table's 3 functions: lookup 0x7415b8, register 0x741684 and unregister 0x7418dc.
 
-Uso: python3 -I patch_libunity_16gb.py <libunity.so original> <salida>
+Usage: python3 -I patch_libunity_16gb.py <original libunity.so> <output>
 """
 import sys
 
-# dirección: (bytes originales, bytes nuevos, descripción)
+# address: (original bytes, new bytes, description)
 PATCHES = {
-    0x7415B8: ("28fc60d3", "28fc63d3", "consulta: lsr x8, x1, #32 -> #35"),
-    0x741620: ("297c59d3", "298859d3", "consulta: ubfx x9, x1, #25, #7 -> #10"),
-    0x74169C: ("89fe60d3", "89fe63d3", "registro: lsr x9, x20, #32 -> #35"),
-    0x741764: ("20108052", "20808052", "registro: mov w0, #0x81 -> #0x401 (entradas raíz)"),
-    0x741784: ("1f0102f9", "1f0110f9", "registro: str xzr, [x8, #0x400] -> #0x2000"),
-    0x74178C: ("957e59d3", "958a59d3", "registro: ubfx x21, x20, #25, #7 -> #10"),
-    0x741898: ("090144b9", "090160b9", "registro: ldr w9, [x8, #0x400] -> #0x2000"),
-    0x7418A8: ("090104b9", "090120b9", "registro: str w9, [x8, #0x400] -> #0x2000"),
-    0x7418F4: ("89fe60d3", "89fe63d3", "baja: lsr x9, x20, #32 -> #35"),
-    0x7419B8: ("967e59d3", "968a59d3", "baja: ubfx x22, x20, #25, #7 -> #10"),
-    0x741AB8: ("090144b9", "090160b9", "baja: ldr w9, [x8, #0x400] -> #0x2000"),
-    0x741AC0: ("090104b9", "090120b9", "baja: str w9, [x8, #0x400] -> #0x2000"),
-    0x741ACC: ("01818052", "01018452", "baja: mov w1, #0x408 -> #0x2008 (tamaño al liberar)"),
+    0x7415B8: ("28fc60d3", "28fc63d3", "lookup: lsr x8, x1, #32 -> #35"),
+    0x741620: ("297c59d3", "298859d3", "lookup: ubfx x9, x1, #25, #7 -> #10"),
+    0x74169C: ("89fe60d3", "89fe63d3", "register: lsr x9, x20, #32 -> #35"),
+    0x741764: ("20108052", "20808052", "register: mov w0, #0x81 -> #0x401 (root entries)"),
+    0x741784: ("1f0102f9", "1f0110f9", "register: str xzr, [x8, #0x400] -> #0x2000"),
+    0x74178C: ("957e59d3", "958a59d3", "register: ubfx x21, x20, #25, #7 -> #10"),
+    0x741898: ("090144b9", "090160b9", "register: ldr w9, [x8, #0x400] -> #0x2000"),
+    0x7418A8: ("090104b9", "090120b9", "register: str w9, [x8, #0x400] -> #0x2000"),
+    0x7418F4: ("89fe60d3", "89fe63d3", "unregister: lsr x9, x20, #32 -> #35"),
+    0x7419B8: ("967e59d3", "968a59d3", "unregister: ubfx x22, x20, #25, #7 -> #10"),
+    0x741AB8: ("090144b9", "090160b9", "unregister: ldr w9, [x8, #0x400] -> #0x2000"),
+    0x741AC0: ("090104b9", "090120b9", "unregister: str w9, [x8, #0x400] -> #0x2000"),
+    0x741ACC: ("01818052", "01018452", "unregister: mov w1, #0x408 -> #0x2008 (size on free)"),
 }
 
 def main(src, dst):
@@ -34,10 +34,10 @@ def main(src, dst):
     for addr, (old, new, desc) in sorted(PATCHES.items()):
         cur = d[addr:addr + 4].hex()
         if cur == new:
-            print(f"{addr:#x} ya parcheado ({desc})")
+            print(f"{addr:#x} already patched ({desc})")
             continue
         if cur != old:
-            sys.exit(f"{addr:#x}: se esperaba {old} y hay {cur}; libunity no es la versión 2018.4.12f1 esperada")
+            sys.exit(f"{addr:#x}: expected {old} but found {cur}; libunity is not the expected 2018.4.12f1 version")
         d[addr:addr + 4] = bytes.fromhex(new)
         print(f"{addr:#x} ok: {desc}")
     open(dst, "wb").write(d)

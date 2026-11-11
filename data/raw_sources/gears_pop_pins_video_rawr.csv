@@ -21,4 +21,4 @@ Longshot Gear,406,7,Common,4,177,,117,,30.8,,3.8,All,42,4,1,Weak,,,
 Locust Drone,419,7,Common,4,259,,41,,45.6,,0.9,All,25,5,1,Average,,,
 Stun Tracker,432,6,Common,1,205,,87,,,,,All,,12,1,,,,stun_radius=Small; stun_duration_s=2
 Sentry,439,3,Rare,3,452,32,26,2,52,4.0,0.5,All,17,,1,,,,lifetime_s=50
-Snub Soldiers,95,4,Common,2,,,,,,,,,,,,,,,role=Scout (solo vista Summary)
+Snub Soldiers,95,4,Common,2,,,,,,,,,,,,,,,role=Scout (Summary view only)

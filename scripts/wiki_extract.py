@@ -1,3 +1,6 @@
+"""Dump content pages (ns 0) from a MediaWiki XML export (sources/wikis/*.xml) to one .txt per page,
+ranked by stat-like words. Usage: wiki_extract.py EXPORT_XML OUT_DIR TAG
+"""
 import sys,re,os,xml.etree.ElementTree as ET
 src,outdir,tag=sys.argv[1],sys.argv[2],sys.argv[3]
 ns={'m':'http://www.mediawiki.org/xml/export-0.11/'}

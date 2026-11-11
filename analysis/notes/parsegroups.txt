@@ -1,0 +1,132 @@
+== Mediatonic.CMS.CMSData$$ParseDataGroups (0x16aea80-0x16aedc4)
+    "singleton"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<AnalyticsSettings>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "battlefield_ui"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<BattlefieldUISettings>
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "current_maps"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<AvailableMaps>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "standard_settings"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<GameRules>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<LocalisationSettings>(
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<MiscAdvancedSettings>(
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "misc_balance"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<MiscBalanceValues>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<PlayerInitialSquads>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<PlayerXpSettings>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "exclusivity_matrix"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<StatusEffectExclusivit
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "settings"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<GachaSequenceSettings>
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "gameplay_tips"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<LoadingScreenGameplayT
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<LocalNotificationsSett
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<AssetBundleVoiceOverId
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<CrewsSettings>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    "daily_deals_default"
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<DailyDeal>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<TutorialSettings>()
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<UserFeedbackPromptSett
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+    m:Method$Mediatonic.CMS.CMSData.ParseCMSGroupItem<HordeBattleUiSettings>
+    -> Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object>
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroupItem<object> (0x179145c-0x1791548)
+    m:Method$System.Collections.Generic.List<int>.Contains()
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(
+== Mediatonic.CMS.CMSData$$ParseCMSGroup<object> (0x1677bf0-0x1677cb4)
+    m:Method$System.Collections.ObjectModel.ReadOnlyCollection<Guid>.System.
+    Mediatonic.Tools.ParsingUtils.Parsing_TypeInfo
+    m:Method$UniRx.Operators.DelayFrameObservable.DelayFrame<object>.OnNext(

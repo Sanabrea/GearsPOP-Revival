@@ -1,8 +1,8 @@
-pin,nombre_es,video_time_s,level,rarity,energy_cost,role,type,extra
+pin,name_es,video_time_s,level,rarity,energy_cost,role,type,extra
 Wretches,Infames,45,7,Rare,3,Scout,Troop,
 Sentinel,Arma centinela,61,7,Rare,3,Bruiser,Troop,
 Marcus Fenix,Marcus Fenix,78,5,Epic,5,Bruiser,Troop,
-Kait Diaz,Kait Díaz,95,5,Epic,4,Threat,Troop,la descripción del juego indica que va directo al líder/puestos/fortificaciones
+Kait Diaz,Kait Díaz,95,5,Epic,4,Threat,Troop,the in-game description says it goes straight for the leader/posts/fortifications
 Longshot Gear,Gear de rifle de francotirador,112,12,Common,4,Scout,Troop,
 Hammer Of Dawn,Martillo del alba,128,5,Epic,6,Removal,Projectile,
 Snub Soldiers,Soldados con pistola,145,11,Common,2,Scout,Troop,
