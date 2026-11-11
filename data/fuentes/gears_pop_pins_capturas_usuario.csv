@@ -1,0 +1,3 @@
+pin,level,rarity,energy_cost,hp,damage,dps,attack_interval_s,target,range,speed,cover_wait,role,type,skill,skill_charge_s,skill_target,skill_duration_s,extra,source_files
+Anya Stroud,1,Legendary,3,220,30,25,1.2,All,24,5,Muy larga,Scout,Troop,Pulso (Pulse),20,Centinelas,6,skill_vulnerable_potency=100%; la habilidad vuelve vulnerables a los objetivos,anya_stroud_L1_avanzado.png; anya_stroud_L1_resumen.png; anya_stroud_L1_habilidad_pulso.png
+Gabe Diaz,1,Legendary,5,300,35,43.8,0.8,All,24,5,Corta,Threat,Troop,,,,,lancer_gear_level=7; max_summon_count=12; recluta un Lancer Gear por cada cobertura capturada antes de desplegarlo,gabe_diaz_L1_resumen.png; gabe_diaz_L1_avanzado.png

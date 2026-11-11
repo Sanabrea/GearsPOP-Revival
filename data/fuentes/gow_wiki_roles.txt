@@ -1,0 +1,49 @@
+# Gears of War Wiki (gearsofwar.fandom.com/wiki/Gears_Pop!, CC-BY-SA) - rol|tipo|grupo
+shepherds|Scout|Troop|launch
+damon baird|Scout|Troop|launch
+deadeye|Scout|Troop|launch
+jd fenix|Scout|Troop|launch
+longshot gear|Scout|Troop|launch
+stun tracker|Scout|Troop|launch
+wretches|Scout|Troop|launch
+frag grenade|Removal|Projectile|launch
+ink grenade|Removal|Projectile|launch
+hammer of dawn|Removal|Projectile|launch
+nemacysts|Removal|Projectile|launch
+clayton carmine|Threat|Troop|launch
+kait diaz|Threat|Troop|launch
+reyna diaz|Threat|Troop|launch
+locust drone|Bruiser|Troop|launch
+savage grenadier|Bruiser|Troop|launch
+marcus fenix|Bruiser|Troop|launch
+boomer|Bruiser|Troop|launch
+drone division|Bruiser|Troop|launch
+gnasher gang|Bruiser|Troop|launch
+grinder|Bruiser|Troop|launch
+lancer crew|Bruiser|Troop|launch
+myrrah|Bruiser|Troop|launch
+old man marcus|Bruiser|Troop|launch
+sentinel|Bruiser|Troop|launch
+skorge|Bruiser|Troop|launch
+butcher|Tank|Troop|launch
+augustus cole|Tank|Troop|launch
+dr-1|Tank|Troop|launch
+shock grenade|Utility|Projectile|launch
+stun grenade|Utility|Projectile|launch
+decoy|Utility|Fortification|launch
+sentry|Utility|Fortification|launch
+kantus|Utility|Troop|launch
+shock barrier|Utility|Fortification|launch
+dominic santiago|Utility|Troop|launch
+emergence hole|Ultimate|Ultimate|launch
+seeder|Ultimate|Ultimate|launch
+winter kait|Threat|Troop|gears5
+jack|Utility|Troop|gears5
+anya stroud|Scout|Troop|update1
+ticker|Scout|Troop|update1
+del walker|Bruiser|Troop|update1
+drop pod|Utility|Projectile|update1
+sam byrne|Scout|Troop|update2
+bernadette mataki|Scout|Troop|update2
+onyx guards|Scout|Troop|update2
+general raam|Tank|Troop|update2

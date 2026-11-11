@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "17042821735",
+    "firebase_url": "https://gears-pop.firebaseio.com",
+    "project_id": "gears-pop",
+    "storage_bucket": "gears-pop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17042821735:android:cbcbfe2751a9862a",
+        "android_client_info": {
+          "package_name": "uk.co.mediatonic.moncton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17042821735-5s5o7kugbnsmjulampd5vij1bf6dv11f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPcIM3qQUP-rcMswIREwGYPHg0S8gnzro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17042821735-5s5o7kugbnsmjulampd5vij1bf6dv11f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "17042821735-ln9jqma61ptmoq3douvoem9a8rsu5ngi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "uk.co.mediatonic.Moncton"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

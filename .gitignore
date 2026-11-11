@@ -1,0 +1,15 @@
+# Intermedios duplicados de build_apk.sh (se regeneran)
+build/work/unsigned.apk
+build/work/aligned.apk
+build/*.idsig
+# Llaves y certificados locales (privados)
+build/keys/
+*.key
+*.jks
+*.p12
+*.csr
+*.srl
+# Varios
+.DS_Store
+__pycache__/
+*.pyc

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Appboy.InAppMessage.Modal" parent="@style/Appboy.InAppMessage">
+        <item name="android:background">@drawable/com_appboy_inappmessage_modal_background</item>
+        <item name="android:paddingLeft">0.0dp</item>
+        <item name="android:paddingTop">0.0dp</item>
+        <item name="android:paddingRight">0.0dp</item>
+        <item name="android:paddingBottom">20.0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">15.0dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:elevation">14.0dp</item>
+        <item name="appboyBoundedLayoutMaxHeight">@dimen/com_appboy_in_app_message_modal_max_height</item>
+        <item name="appboyBoundedLayoutMaxWidth">@dimen/com_appboy_in_app_message_modal_max_width</item>
+        <item name="appboyBoundedLayoutMinWidth">@dimen/com_appboy_in_app_message_modal_min_width</item>
+    </style>
+    <style name="Appboy.InAppMessage.Slideup.Container" parent="@style/Appboy.InAppMessage.Slideup">
+        <item name="android:background">@drawable/com_appboy_inappmessage_slideup_background</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10.0dp</item>
+        <item name="android:layout_marginRight">10.0dp</item>
+        <item name="android:layout_marginBottom">10.0dp</item>
+        <item name="android:elevation">9.0dp</item>
+    </style>
+    <style name="Appboy.Story.TextView" parent="@android:style/TextAppearance.Material.Notification">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">0.0dp</item>
+        <item name="android:maxLines">2</item>
+    </style>
+    <style name="BaseUnityTheme" parent="@android:style/Theme.Material.Light.NoActionBar.Fullscreen" />
+    <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.Material.Notification" />
+    <style name="TextAppearance.Compat.Notification.Info" parent="@android:style/TextAppearance.Material.Notification.Info" />
+    <style name="TextAppearance.Compat.Notification.Info.Media" parent="@style/TextAppearance.Compat.Notification.Info">
+        <item name="android:textColor">@color/secondary_text_default_material_dark</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Media" parent="@style/TextAppearance.Compat.Notification">
+        <item name="android:textColor">@color/secondary_text_default_material_dark</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Time" parent="@android:style/TextAppearance.Material.Notification.Time" />
+    <style name="TextAppearance.Compat.Notification.Time.Media" parent="@style/TextAppearance.Compat.Notification.Time">
+        <item name="android:textColor">@color/secondary_text_default_material_dark</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.Material.Notification.Title" />
+    <style name="TextAppearance.Compat.Notification.Title.Media" parent="@style/TextAppearance.Compat.Notification.Title">
+        <item name="android:textColor">@color/primary_text_default_material_dark</item>
+    </style>
+    <style name="Widget.Compat.NotificationActionContainer" parent="">
+        <item name="android:background">@drawable/notification_action_background</item>
+    </style>
+    <style name="Widget.Compat.NotificationActionText" parent="">
+        <item name="android:textAppearance">?android:textAppearanceButton</item>
+        <item name="android:textSize">@dimen/notification_action_text_size</item>
+        <item name="android:textColor">@color/secondary_text_default_material_light</item>
+    </style>
+</resources>

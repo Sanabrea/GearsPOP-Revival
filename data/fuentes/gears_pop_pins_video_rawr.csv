@@ -1,0 +1,24 @@
+pin,video_time_s,level,rarity,energy_cost,hp,hp_gain_next,damage,damage_gain_next,dps,dps_gain_next,attack_interval_s,target,range,speed,deploy_s,capture_strength,troops,mantle_kicks,extra
+Marcus Fenix,29,1,Epic,5,255,21,57,5,63.3,5.6,0.9,All,24,5,1,Very Strong,,,
+Lancer Gear,61,8,Common,1,149,,25,,25,,1,All,24,4.5,1,Average,,,role=Scout
+Wretches,72,3,Rare,3,73,6,22,2,27.5,2.5,0.8,All,Melee,12,1,,5,Yes,
+Clayton Carmine,124,4,Rare,5,484,,45,,30,,1.5,All,12,5,1,,,Yes,role=Threat; skill=Carnage
+JD Fenix,133,1,Epic,3,201,17,33,3,41.3,3.8,0.8,All,24,4,1,Average,,,
+Shepherds,156,7,Common,3,86,,19,,31.7,,0.6,All,16,3,1,,3,,
+Shock Barrier,178.5,7,Common,2,140,,45,,,,,,,,1,,,,lifetime_s=45; shock_potency=35%; shock_duration_s=4
+Butcher,193,1,Epic,6,1218,99,106,9,58.9,5.0,1.8,Fortifications & Objectives,Melee,3,1,,,,
+Lancer Crew,214,4,Rare,4,147,,25,,25,,1,All,24,4.5,1,Strong,4,,
+Stun Grenade,234.5,7,Common,3,,,,,,,,,,,,,,,stun_duration_s=3.1; stun_radius=Medium
+Grinder,244,1,Epic,6,394,33,11,1,15.7,1.4,0.7,All,22,3,1,,,,max_damage=143(+13); max_dps=204.3(+18.6)
+Dominic Santiago,260,1,Epic,4,270,22,34,3,34,3.0,1,All,20,4,1,,,,
+Emergence Hole,280,3,Rare,4,201,14,,,,,,,,,1,,,,lifetime_s=25; spawn_count=1; spawn_frequency_s=3; wretch_level=5(+1)
+Augustus Cole,306,1,Epic,3,201,17,44,4,48.9,4.4,0.9,All,16,7.0,1,,,Yes,haste_potency=35%; haste_duration_s=4; haste_radius=Large
+Frag Grenade,344.5,6,Common,4,,,194,,,,,,,,,,,,damage_radius=Small; objectives_damage=-50%
+Gnasher Gang,355,3,Rare,7,302,22,43,4,28.7,2.7,1.5,All,12,6.5,1,,3,Yes,
+Boomer,375,4,Rare,6,470,,110,,84.6,,1.3,All,21,3,1,,,,damage_radius=Small
+Ink Grenade,393.5,6,Common,4,,,150,,,,,,,,,,,,dot_duration_s=7.5; damage_radius=Large; objectives_damage=-50%
+Longshot Gear,406,7,Common,4,177,,117,,30.8,,3.8,All,42,4,1,Weak,,,
+Locust Drone,419,7,Common,4,259,,41,,45.6,,0.9,All,25,5,1,Average,,,
+Stun Tracker,432,6,Common,1,205,,87,,,,,All,,12,1,,,,stun_radius=Small; stun_duration_s=2
+Sentry,439,3,Rare,3,452,32,26,2,52,4.0,0.5,All,17,,1,,,,lifetime_s=50
+Snub Soldiers,95,4,Common,2,,,,,,,,,,,,,,,role=Scout (solo vista Summary)

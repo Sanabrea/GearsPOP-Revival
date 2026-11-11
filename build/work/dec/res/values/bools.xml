@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="com_appboy_enable_location_collection">false</bool>
+    <bool name="com_appboy_firebase_cloud_messaging_registration_enabled">true</bool>
+    <bool name="com_appboy_handle_push_deep_links_automatically">true</bool>
+    <bool name="com_appboy_inapp_show_inapp_messages_automatically">true</bool>
+    <bool name="com_appboy_push_adm_messaging_registration_enabled">false</bool>
+</resources>

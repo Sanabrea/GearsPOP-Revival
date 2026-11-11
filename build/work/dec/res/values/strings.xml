@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Gears POP!</string>
+    <string name="channel_name">Default</string>
+    <string name="com_appboy_api_key">6dc2a156-c29f-463b-8eea-ad5cad1d1085</string>
+    <string name="com_appboy_custom_endpoint">sdk.iad-03.braze.com</string>
+    <string name="com_appboy_feed_connection_error_body">"Cannot establish network connection.
+Please try again later."</string>
+    <string name="com_appboy_feed_connection_error_title">Connection Error</string>
+    <string name="com_appboy_feed_empty">"We have no updates.
+Please check again later."</string>
+    <string name="com_appboy_feed_listener_callback_method_name">NewsFeedReceivedCallback</string>
+    <string name="com_appboy_feed_listener_game_object_name">BrazeNewsFeedListener</string>
+    <string name="com_appboy_firebase_cloud_messaging_sender_id">17042821735</string>
+    <string name="com_appboy_image_is_read_tag_key">com_appboy_image_is_read_tag_key</string>
+    <string name="com_appboy_image_lru_cache_image_url_key">com_appboy_image_lru_cache_image_url_key</string>
+    <string name="com_appboy_image_resize_tag_key">com_appboy_image_resize_tag_key</string>
+    <string name="com_appboy_inappmessage_close_content_description">in-app message close</string>
+    <string name="com_appboy_inappmessage_icon_content_description">in-app message icon</string>
+    <string name="com_appboy_inappmessage_image_content_description">in-app message image</string>
+    <string name="com_appboy_recommendation_free">Free</string>
+    <string name="com_appboy_sdk_flavor">UNITY</string>
+    <string name="common_google_play_services_enable_button">Enable</string>
+    <string name="common_google_play_services_enable_text">"%1$s won't work unless you enable Google Play services."</string>
+    <string name="common_google_play_services_enable_title">Enable Google Play services</string>
+    <string name="common_google_play_services_install_button">Install</string>
+    <string name="common_google_play_services_install_text">"%1$s won't run without Google Play services, which are missing from your device."</string>
+    <string name="common_google_play_services_install_title">Get Google Play services</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
+    <string name="common_google_play_services_notification_ticker">Google Play services error</string>
+    <string name="common_google_play_services_unknown_issue">%1$s is having trouble with Google Play services. Please try again.</string>
+    <string name="common_google_play_services_unsupported_text">"%1$s won't run without Google Play services, which are not supported by your device."</string>
+    <string name="common_google_play_services_update_button">Update</string>
+    <string name="common_google_play_services_update_text">"%1$s won't run unless you update Google Play services."</string>
+    <string name="common_google_play_services_update_title">Update Google Play services</string>
+    <string name="common_google_play_services_updating_text">"%1$s won't run without Google Play services, which are currently updating."</string>
+    <string name="common_google_play_services_wear_update_text">New version of Google Play services needed. It will update itself shortly.</string>
+    <string name="common_open_on_phone">Open on phone</string>
+    <string name="common_signin_button_text">Sign in</string>
+    <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="default_web_client_id">17042821735-5s5o7kugbnsmjulampd5vij1bf6dv11f.apps.googleusercontent.com</string>
+    <string name="fcm_fallback_notification_channel_label">Miscellaneous</string>
+    <string name="firebase_database_url">https://gears-pop.firebaseio.com</string>
+    <string name="game_view_content_description">Game view</string>
+    <string name="gcm_defaultSenderId">17042821735</string>
+    <string name="google_api_key">AIzaSyDPcIM3qQUP-rcMswIREwGYPHg0S8gnzro</string>
+    <string name="google_app_id">1:17042821735:android:cbcbfe2751a9862a</string>
+    <string name="google_crash_reporting_api_key">AIzaSyDPcIM3qQUP-rcMswIREwGYPHg0S8gnzro</string>
+    <string name="google_storage_bucket">gears-pop.appspot.com</string>
+    <string name="project_id">gears-pop</string>
+    <string name="status_bar_notification_info_overflow">999+</string>
+</resources>

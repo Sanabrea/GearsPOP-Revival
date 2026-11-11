@@ -1,0 +1,6 @@
+# puerto tls|plain etiqueta
+12000 tls login
+12345 tls gateway
+11111 tls battle
+8443 tls cms
+8080 plain http

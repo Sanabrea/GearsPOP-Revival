@@ -1,0 +1,786 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Appboy" />
+    <style name="Appboy.Button" parent="@style/Appboy">
+        <item name="android:textColor">@color/com_appboy_button</item>
+        <item name="android:minWidth">0.0dp</item>
+        <item name="android:minHeight">0.0dp</item>
+    </style>
+    <style name="Appboy.Cards" parent="@style/Appboy" />
+    <style name="Appboy.Cards.BannerImage" parent="@style/Appboy.Cards" />
+    <style name="Appboy.Cards.BannerImage.Image" parent="@style/Appboy.Cards.BannerImage" />
+    <style name="Appboy.Cards.CaptionedImage" parent="@style/Appboy.Cards" />
+    <style name="Appboy.Cards.CaptionedImage.Description" parent="@style/Appboy.Cards.CaptionedImage">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/com_appboy_description</item>
+        <item name="android:paddingBottom">8.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="Appboy.Cards.CaptionedImage.Domain" parent="@style/Appboy.Cards.CaptionedImage">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_domain</item>
+        <item name="android:paddingBottom">10.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="Appboy.Cards.CaptionedImage.Image" parent="@style/Appboy.Cards.CaptionedImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    <style name="Appboy.Cards.CaptionedImage.Title" parent="@style/Appboy.Cards.CaptionedImage">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_title</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="Appboy.Cards.CaptionedImage.Title.Container" parent="@style/Appboy.Cards.CaptionedImage.Title">
+        <item name="android:background">@color/com_appboy_card_title_container</item>
+    </style>
+    <style name="Appboy.Cards.ImageSwitcher" parent="@style/Appboy.Cards">
+        <item name="android:gravity">right|top</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    <style name="Appboy.Cards.ShortNews" parent="@style/Appboy.Cards" />
+    <style name="Appboy.Cards.ShortNews.Description" parent="@style/Appboy.Cards.ShortNews">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/com_appboy_description</item>
+        <item name="android:paddingTop">8.0dp</item>
+        <item name="android:paddingBottom">8.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.Cards.ShortNews.Domain" parent="@style/Appboy.Cards.ShortNews">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_domain</item>
+        <item name="android:paddingBottom">10.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="Appboy.Cards.ShortNews.Image" parent="@style/Appboy.Cards.ShortNews">
+        <item name="android:layout_width">57.5dp</item>
+        <item name="android:layout_height">57.5dp</item>
+        <item name="android:layout_marginLeft">10.0dp</item>
+        <item name="android:layout_marginTop">10.0dp</item>
+        <item name="android:layout_marginRight">10.0dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    <style name="Appboy.Cards.ShortNews.Title" parent="@style/Appboy.Cards.ShortNews">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_title</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.Cards.TextAnnouncement" parent="@style/Appboy.Cards" />
+    <style name="Appboy.Cards.TextAnnouncement.Description" parent="@style/Appboy.Cards.TextAnnouncement">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/com_appboy_description</item>
+        <item name="android:paddingBottom">8.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.Cards.TextAnnouncement.Domain" parent="@style/Appboy.Cards.TextAnnouncement">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_domain</item>
+        <item name="android:paddingBottom">10.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="Appboy.Cards.TextAnnouncement.Title" parent="@style/Appboy.Cards.TextAnnouncement">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_title</item>
+        <item name="android:paddingBottom">8.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.ContentCards" parent="@style/Appboy">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">@dimen/com_appboy_content_cards_max_width</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.ContentCards.ActionHint" parent="@style/Appboy.ContentCards">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/com_appboy_content_cards_action_hint_text_color</item>
+        <item name="android:lineSpacingMultiplier">1.2</item>
+    </style>
+    <style name="Appboy.ContentCards.ActionHint.CaptionedImage" parent="@style/Appboy.ContentCards.ActionHint">
+        <item name="android:layout_marginTop">12.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_below">@id/com_appboy_content_cards_captioned_image_description</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="Appboy.ContentCards.ActionHint.ShortNews" parent="@style/Appboy.ContentCards.ActionHint">
+        <item name="android:layout_marginTop">12.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_below">@id/com_appboy_content_cards_short_news_card_description</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="Appboy.ContentCards.ActionHint.TextAnnouncement" parent="@style/Appboy.ContentCards.ActionHint">
+        <item name="android:layout_marginTop">12.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_below">@id/com_appboy_content_cards_text_announcement_card_description</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="Appboy.ContentCards.BannerImage" parent="@style/Appboy.ContentCards" />
+    <style name="Appboy.ContentCards.BannerImage.ImageContainer" parent="@style/Appboy.ContentCards.BannerImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.ContentCards.BannerImage.ImageContainer.Image" parent="@style/Appboy.ContentCards.BannerImage.ImageContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+    <style name="Appboy.ContentCards.CaptionedImage" parent="@style/Appboy.ContentCards">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.ContentCards.CaptionedImage.Container" parent="@style/Appboy.ContentCards.CaptionedImage">
+        <item name="android:paddingBottom">25.0dp</item>
+        <item name="android:layout_marginLeft">25.0dp</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:layout_marginRight">25.0dp</item>
+        <item name="android:layout_below">@id/com_appboy_content_cards_captioned_image_card_image_container</item>
+    </style>
+    <style name="Appboy.ContentCards.CaptionedImage.Description" parent="@style/Appboy.ContentCards.CaptionedImage">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/com_appboy_content_cards_description</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">10.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_below">@id/com_appboy_content_cards_captioned_image_title</item>
+    </style>
+    <style name="Appboy.ContentCards.CaptionedImage.ImageContainer" parent="@style/Appboy.ContentCards.CaptionedImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    <style name="Appboy.ContentCards.CaptionedImage.ImageContainer.Image" parent="@style/Appboy.ContentCards.CaptionedImage.ImageContainer">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+    <style name="Appboy.ContentCards.CaptionedImage.Title" parent="@style/Appboy.ContentCards.CaptionedImage">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_content_cards_title</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="Appboy.ContentCards.EmptyContainer" parent="@style/Appboy.ContentCards">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="Appboy.ContentCards.PinnedIcon" parent="@style/Appboy.ContentCards">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:src">@drawable/icon_pinned</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    <style name="Appboy.ContentCards.PinnedIcon.Banner" parent="@style/Appboy.ContentCards.PinnedIcon" />
+    <style name="Appboy.ContentCards.PinnedIcon.CaptionedImage" parent="@style/Appboy.ContentCards.PinnedIcon" />
+    <style name="Appboy.ContentCards.PinnedIcon.ShortNews" parent="@style/Appboy.ContentCards.PinnedIcon" />
+    <style name="Appboy.ContentCards.PinnedIcon.TextAnnouncement" parent="@style/Appboy.ContentCards.PinnedIcon" />
+    <style name="Appboy.ContentCards.ShortNews" parent="@style/Appboy.ContentCards" />
+    <style name="Appboy.ContentCards.ShortNews.Container" parent="@style/Appboy.ContentCards.ShortNews">
+        <item name="android:paddingBottom">25.0dp</item>
+        <item name="android:layout_marginLeft">12.0dp</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:layout_marginRight">25.0dp</item>
+        <item name="android:layout_toRightOf">@id/com_appboy_content_cards_short_news_card_image_container</item>
+    </style>
+    <style name="Appboy.ContentCards.ShortNews.Description" parent="@style/Appboy.ContentCards.ShortNews">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/com_appboy_content_cards_description</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_below">@id/com_appboy_content_cards_short_news_card_title</item>
+    </style>
+    <style name="Appboy.ContentCards.ShortNews.ImageContainer" parent="@style/Appboy.ContentCards.ShortNews">
+        <item name="android:layout_width">57.5dp</item>
+        <item name="android:layout_height">57.5dp</item>
+        <item name="android:layout_marginLeft">25.0dp</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:layout_marginBottom">25.0dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    <style name="Appboy.ContentCards.ShortNews.ImageContainer.Image" parent="@style/Appboy.ContentCards.ShortNews.ImageContainer">
+        <item name="android:background">@drawable/com_appboy_content_cards_rounded_corner_background</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+    <style name="Appboy.ContentCards.ShortNews.Title" parent="@style/Appboy.ContentCards.ShortNews">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_content_cards_title</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_alignParentTop">true</item>
+    </style>
+    <style name="Appboy.ContentCards.TextAnnouncement" parent="@style/Appboy.ContentCards">
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.ContentCards.TextAnnouncement.Container" parent="@style/Appboy.ContentCards.TextAnnouncement">
+        <item name="android:paddingBottom">25.0dp</item>
+        <item name="android:layout_marginLeft">25.0dp</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:layout_marginRight">25.0dp</item>
+    </style>
+    <style name="Appboy.ContentCards.TextAnnouncement.Description" parent="@style/Appboy.ContentCards.TextAnnouncement">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/com_appboy_content_cards_description</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_below">@id/com_appboy_content_cards_text_announcement_card_title</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.ContentCards.TextAnnouncement.Title" parent="@style/Appboy.ContentCards.TextAnnouncement">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_content_cards_title</item>
+        <item name="android:layout_marginBottom">10.0dp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.ContentCards.UnreadBar" parent="@style/Appboy.ContentCards">
+        <item name="android:background">@color/com_appboy_content_cards_unread_bar_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/com_appboy_content_cards_unread_bar_height</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+    <style name="Appboy.ContentCards.UnreadBar.Banner" parent="@style/Appboy.ContentCards.UnreadBar" />
+    <style name="Appboy.ContentCards.UnreadBar.CaptionedImage" parent="@style/Appboy.ContentCards.UnreadBar" />
+    <style name="Appboy.ContentCards.UnreadBar.ShortNews" parent="@style/Appboy.ContentCards.UnreadBar" />
+    <style name="Appboy.ContentCards.UnreadBar.TextAnnouncement" parent="@style/Appboy.ContentCards.UnreadBar" />
+    <style name="Appboy.ContentCardsDisplay" parent="@style/Appboy" />
+    <style name="Appboy.ContentCardsDisplay.Empty" parent="@style/Appboy.ContentCardsDisplay">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/com_appboy_title</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:text">@string/com_appboy_feed_empty</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.ContentCardsDisplay.Recycler" parent="@style/Appboy.ContentCardsDisplay">
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:background">@color/com_appboy_content_cards_display_background_color</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:divider">@android:color/transparent</item>
+    </style>
+    <style name="Appboy.EventContent" parent="@style/Appboy">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/com_appboy_custom_notification_content</item>
+    </style>
+    <style name="Appboy.EventContent.Time" parent="@style/Appboy.EventContent">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">@color/com_appboy_custom_notification_time</item>
+    </style>
+    <style name="Appboy.EventContent.Title" parent="@style/Appboy.EventContent">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_custom_notification_title</item>
+    </style>
+    <style name="Appboy.Feed" parent="@style/Appboy" />
+    <style name="Appboy.Feed.Empty" parent="@style/Appboy.Feed">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/com_appboy_title</item>
+        <item name="android:text">@string/com_appboy_feed_empty</item>
+        <item name="android:lineSpacingExtra">1.5dp</item>
+    </style>
+    <style name="Appboy.Feed.List" parent="@style/Appboy.Feed">
+        <item name="android:scrollbarStyle">outsideInset</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingLeft">12.5dp</item>
+        <item name="android:paddingRight">5.0dp</item>
+        <item name="android:divider">@android:color/transparent</item>
+        <item name="android:dividerHeight">16.0dp</item>
+    </style>
+    <style name="Appboy.Feed.NetworkErrorBody" parent="@style/Appboy.Feed">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/com_appboy_title</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:text">@string/com_appboy_feed_connection_error_body</item>
+    </style>
+    <style name="Appboy.Feed.NetworkErrorTitle" parent="@style/Appboy.Feed">
+        <item name="android:textSize">19.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_title</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:text">@string/com_appboy_feed_connection_error_title</item>
+    </style>
+    <style name="Appboy.InAppMessage" parent="@style/Appboy" />
+    <style name="Appboy.InAppMessage.Button" parent="@style/Appboy.InAppMessage">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_inappmessage_button_text_light</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/com_appboy_inappmessage_button_background</item>
+        <item name="android:paddingLeft">12.0dp</item>
+        <item name="android:paddingRight">12.0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">44.0dp</item>
+        <item name="android:minWidth">80.0dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+    <style name="Appboy.InAppMessage.Button.Full" parent="@style/Appboy.InAppMessage.Button" />
+    <style name="Appboy.InAppMessage.Button.Full.Dual" parent="@style/Appboy.InAppMessage.Button.Full" />
+    <style name="Appboy.InAppMessage.Button.Full.Dual.Graphic" parent="@style/Appboy.InAppMessage.Button.Full.Dual" />
+    <style name="Appboy.InAppMessage.Button.Full.Dual.One" parent="@style/Appboy.InAppMessage.Button.Full.Dual">
+        <item name="android:layout_marginRight">5.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Button.Full.Dual.One.Graphic" parent="@style/Appboy.InAppMessage.Button.Full.Dual.One" />
+    <style name="Appboy.InAppMessage.Button.Full.Dual.Two" parent="@style/Appboy.InAppMessage.Button.Full.Dual">
+        <item name="android:layout_marginLeft">5.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Button.Full.Dual.Two.Graphic" parent="@style/Appboy.InAppMessage.Button.Full.Dual.Two" />
+    <style name="Appboy.InAppMessage.Button.Full.Single" parent="@style/Appboy.InAppMessage.Button.Full" />
+    <style name="Appboy.InAppMessage.Button.Full.Single.Graphic" parent="@style/Appboy.InAppMessage.Button.Full.Single" />
+    <style name="Appboy.InAppMessage.Button.Modal" parent="@style/Appboy.InAppMessage.Button" />
+    <style name="Appboy.InAppMessage.Button.Modal.Dual" parent="@style/Appboy.InAppMessage.Button.Modal" />
+    <style name="Appboy.InAppMessage.Button.Modal.Dual.Graphic" parent="@style/Appboy.InAppMessage.Button.Modal.Dual" />
+    <style name="Appboy.InAppMessage.Button.Modal.Dual.One" parent="@style/Appboy.InAppMessage.Button.Modal.Dual">
+        <item name="android:layout_marginRight">5.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Button.Modal.Dual.One.Graphic" parent="@style/Appboy.InAppMessage.Button.Modal.Dual.One" />
+    <style name="Appboy.InAppMessage.Button.Modal.Dual.Two" parent="@style/Appboy.InAppMessage.Button.Modal.Dual">
+        <item name="android:layout_marginLeft">5.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Button.Modal.Dual.Two.Graphic" parent="@style/Appboy.InAppMessage.Button.Modal.Dual.Two" />
+    <style name="Appboy.InAppMessage.Button.Modal.Single" parent="@style/Appboy.InAppMessage.Button.Modal" />
+    <style name="Appboy.InAppMessage.Button.Modal.Single.Graphic" parent="@style/Appboy.InAppMessage.Button.Modal.Single" />
+    <style name="Appboy.InAppMessage.Chevron" parent="@style/Appboy.InAppMessage">
+        <item name="android:background">@drawable/com_appboy_inappmessage_chevron</item>
+        <item name="android:layout_width">12.0dp</item>
+        <item name="android:layout_height">20.0dp</item>
+        <item name="android:layout_marginLeft">18.0dp</item>
+        <item name="android:layout_marginRight">20.0dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Chevron.Slideup" parent="@style/Appboy.InAppMessage.Chevron">
+        <item name="android:layout_marginLeft">0.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.CloseButton" parent="@style/Appboy.InAppMessage">
+        <item name="android:background">@drawable/com_appboy_inappmessage_button_close</item>
+        <item name="android:layout_width">20.0dp</item>
+        <item name="android:layout_height">20.0dp</item>
+        <item name="android:layout_marginTop">15.0dp</item>
+        <item name="android:layout_marginRight">15.0dp</item>
+        <item name="android:foreground">?android:selectableItemBackground</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:contentDescription">@string/com_appboy_inappmessage_close_content_description</item>
+    </style>
+    <style name="Appboy.InAppMessage.CloseButton.Full" parent="@style/Appboy.InAppMessage.CloseButton">
+        <item name="android:layout_marginTop">25.0dp</item>
+        <item name="android:layout_marginRight">25.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.CloseButton.Full.Graphic" parent="@style/Appboy.InAppMessage.CloseButton.Full" />
+    <style name="Appboy.InAppMessage.CloseButton.Modal" parent="@style/Appboy.InAppMessage.CloseButton" />
+    <style name="Appboy.InAppMessage.CloseButton.Modal.Graphic" parent="@style/Appboy.InAppMessage.CloseButton.Modal" />
+    <style name="Appboy.InAppMessage.Frame" parent="@style/Appboy.InAppMessage">
+        <item name="android:background">@color/com_appboy_inappmessage_frame_light</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="Appboy.InAppMessage.Frame.Full" parent="@style/Appboy.InAppMessage.Frame" />
+    <style name="Appboy.InAppMessage.Frame.Full.Graphic" parent="@style/Appboy.InAppMessage.Frame.Full" />
+    <style name="Appboy.InAppMessage.Frame.Modal" parent="@style/Appboy.InAppMessage.Frame" />
+    <style name="Appboy.InAppMessage.Frame.Modal.Graphic" parent="@style/Appboy.InAppMessage.Frame.Modal" />
+    <style name="Appboy.InAppMessage.Full" parent="@style/Appboy.InAppMessage">
+        <item name="android:background">@color/com_appboy_inappmessage_background_light</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Full.Graphic" parent="@style/Appboy.InAppMessage.Full" />
+    <style name="Appboy.InAppMessage.Full.TextAndButtonContent" parent="@style/Appboy.InAppMessage.Full">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_marginTop">30.0dp</item>
+        <item name="android:layout_marginBottom">30.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Full.TextArea" parent="@style/Appboy.InAppMessage.Full">
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.InAppMessage.Header" parent="@style/Appboy.InAppMessage">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_appboy_inappmessage_header_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:lineSpacingMultiplier">1.3</item>
+    </style>
+    <style name="Appboy.InAppMessage.Header.Full" parent="@style/Appboy.InAppMessage.Header" />
+    <style name="Appboy.InAppMessage.Header.Modal" parent="@style/Appboy.InAppMessage.Header">
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="Appboy.InAppMessage.Html" parent="@style/Appboy.InAppMessage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="Appboy.InAppMessage.Html.Webview" parent="@style/Appboy.InAppMessage.Html">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="Appboy.InAppMessage.Icon" parent="@style/Appboy.InAppMessage">
+        <item name="android:textSize">30.0sp</item>
+        <item name="android:textColor">@color/com_appboy_inappmessage_icon</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/com_appboy_icon_background</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">50.0dp</item>
+        <item name="android:layout_height">50.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Icon.Modal" parent="@style/Appboy.InAppMessage.Icon">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Icon.Slideup" parent="@style/Appboy.InAppMessage.Icon">
+        <item name="android:contentDescription">@string/com_appboy_inappmessage_icon_content_description</item>
+    </style>
+    <style name="Appboy.InAppMessage.Image" parent="@style/Appboy.InAppMessage" />
+    <style name="Appboy.InAppMessage.Image.Full" parent="@style/Appboy.InAppMessage.Image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.0dp</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:contentDescription">@string/com_appboy_inappmessage_image_content_description</item>
+    </style>
+    <style name="Appboy.InAppMessage.Image.Full.Graphic" parent="@style/Appboy.InAppMessage.Image.Full">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="Appboy.InAppMessage.Image.Modal" parent="@style/Appboy.InAppMessage.Image">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Image.Modal.Graphic" parent="@style/Appboy.InAppMessage.Image.Modal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="Appboy.InAppMessage.Image.Slideup" parent="@style/Appboy.InAppMessage.Image">
+        <item name="android:layout_width">50.0dp</item>
+        <item name="android:layout_height">50.0dp</item>
+        <item name="android:contentDescription">@string/com_appboy_inappmessage_image_content_description</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout" parent="@style/Appboy.InAppMessage">
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Button" parent="@style/Appboy.InAppMessage.Layout">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:weightSum">2.0</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Button.Full" parent="@style/Appboy.InAppMessage.Layout.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginLeft">25.0dp</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:layout_marginRight">25.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Button.Full.Graphic" parent="@style/Appboy.InAppMessage.Layout.Button.Full">
+        <item name="android:layout_marginBottom">30.0dp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Button.Modal" parent="@style/Appboy.InAppMessage.Layout.Button">
+        <item name="android:layout_marginTop">20.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Button.Modal.Graphic" parent="@style/Appboy.InAppMessage.Layout.Button.Modal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_below">@id/com_appboy_inappmessage_modal_text_layout</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.ButtonAndText" parent="@style/Appboy.InAppMessage.Layout" />
+    <style name="Appboy.InAppMessage.Layout.ButtonAndText.Modal" parent="@style/Appboy.InAppMessage.Layout.ButtonAndText">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">20.0dp</item>
+        <item name="android:layout_marginRight">20.0dp</item>
+        <item name="android:weightSum">1.0</item>
+        <item name="android:layout_below">@id/com_appboy_inappmessage_modal_image_layout</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Image" parent="@style/Appboy.InAppMessage.Layout" />
+    <style name="Appboy.InAppMessage.Layout.Image.Modal" parent="@style/Appboy.InAppMessage.Layout.Image">
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:contentDescription">@string/com_appboy_inappmessage_image_content_description</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Text" parent="@style/Appboy.InAppMessage.Layout">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Text.Full" parent="@style/Appboy.InAppMessage.Layout.Text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.InAppMessage.Layout.Text.Modal" parent="@style/Appboy.InAppMessage.Layout.Text">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <style name="Appboy.InAppMessage.Message" parent="@style/Appboy.InAppMessage">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/com_appboy_inappmessage_text</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:lineSpacingExtra">0.0dp</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+    <style name="Appboy.InAppMessage.Message.Full" parent="@style/Appboy.InAppMessage.Message">
+        <item name="android:gravity">center</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Message.Modal" parent="@style/Appboy.InAppMessage.Message">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Message.Slideup" parent="@style/Appboy.InAppMessage.Message">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/com_appboy_inappmessage_text_slideup</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:paddingBottom">15.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15.0dp</item>
+        <item name="android:layout_marginRight">20.0dp</item>
+        <item name="android:layout_marginBottom">15.0dp</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:layout_toLeftOf">@id/com_appboy_inappmessage_slideup_chevron</item>
+        <item name="android:layout_toRightOf">@id/com_appboy_inappmessage_slideup_image_layout</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.Modal" parent="@style/Appboy.InAppMessage">
+        <item name="android:background">@drawable/com_appboy_inappmessage_modal_background</item>
+        <item name="android:paddingLeft">0.0dp</item>
+        <item name="android:paddingTop">0.0dp</item>
+        <item name="android:paddingRight">0.0dp</item>
+        <item name="android:paddingBottom">20.0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">15.0dp</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="appboyBoundedLayoutMaxHeight">@dimen/com_appboy_in_app_message_modal_max_height</item>
+        <item name="appboyBoundedLayoutMaxWidth">@dimen/com_appboy_in_app_message_modal_max_width</item>
+        <item name="appboyBoundedLayoutMinWidth">@dimen/com_appboy_in_app_message_modal_min_width</item>
+    </style>
+    <style name="Appboy.InAppMessage.Modal.Graphic" parent="@style/Appboy.InAppMessage.Modal">
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">0.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.ScrollView" parent="@style/Appboy.InAppMessage">
+        <item name="android:fillViewport">true</item>
+    </style>
+    <style name="Appboy.InAppMessage.ScrollView.Full" parent="@style/Appboy.InAppMessage.ScrollView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">25.0dp</item>
+        <item name="android:layout_marginRight">25.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.ScrollView.Modal" parent="@style/Appboy.InAppMessage.ScrollView">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20.0dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="Appboy.InAppMessage.Slideup" parent="@style/Appboy.InAppMessage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Slideup.Container" parent="@style/Appboy.InAppMessage.Slideup">
+        <item name="android:background">@drawable/com_appboy_inappmessage_slideup_background</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10.0dp</item>
+        <item name="android:layout_marginRight">10.0dp</item>
+        <item name="android:layout_marginBottom">10.0dp</item>
+    </style>
+    <style name="Appboy.InAppMessage.Slideup.ImageContainer" parent="@style/Appboy.InAppMessage.Slideup">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15.0dp</item>
+        <item name="android:layout_marginTop">15.0dp</item>
+        <item name="android:layout_marginRight">10.0dp</item>
+        <item name="android:layout_marginBottom">15.0dp</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+    <style name="Appboy.Story" parent="@style/Appboy" />
+    <style name="Appboy.Story.FullLayout" parent="@style/Appboy.Story">
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:weightSum">1.0</item>
+    </style>
+    <style name="Appboy.Story.ImageButton" parent="@style/Appboy.Story">
+        <item name="android:background">#00112233</item>
+        <item name="android:paddingTop">20.0dp</item>
+        <item name="android:paddingBottom">20.0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.Story.ImageButton.OneImage" parent="@style/Appboy.Story.ImageButton">
+        <item name="android:layout_alignTop">@id/com_appboy_story_image_view</item>
+        <item name="android:layout_alignBottom">@id/com_appboy_story_image_view</item>
+    </style>
+    <style name="Appboy.Story.ImageButton.OneImage.Left" parent="@style/Appboy.Story.ImageButton.OneImage">
+        <item name="android:paddingLeft">3.0dp</item>
+        <item name="android:paddingRight">20.0dp</item>
+        <item name="android:src">@drawable/com_appboy_ic_left_arrow</item>
+        <item name="android:layout_alignLeft">@id/com_appboy_story_image_view</item>
+    </style>
+    <style name="Appboy.Story.ImageButton.OneImage.Right" parent="@style/Appboy.Story.ImageButton.OneImage">
+        <item name="android:paddingLeft">20.0dp</item>
+        <item name="android:paddingRight">3.0dp</item>
+        <item name="android:src">@drawable/com_appboy_ic_right_arrow</item>
+        <item name="android:layout_alignRight">@id/com_appboy_story_image_view</item>
+    </style>
+    <style name="Appboy.Story.ImageView" parent="@style/Appboy.Story">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.Story.ImageView.OneImage" parent="@style/Appboy.Story.ImageView">
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+    <style name="Appboy.Story.OneImageLayout" parent="@style/Appboy.Story">
+        <item name="android:clickable">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:maxHeight">200.0dp</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    <style name="Appboy.Story.TextView" parent="@style/Appboy.Story">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">0.0dp</item>
+    </style>
+    <style name="Appboy.Story.TextView.Subtitle" parent="@style/Appboy.Story.TextView">
+        <item name="android:textStyle">normal</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="Appboy.Story.TextView.Subtitle.OneImage" parent="@style/Appboy.Story.TextView.Subtitle" />
+    <style name="Appboy.Story.TextView.Title" parent="@style/Appboy.Story.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingBottom">5.0dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <style name="Appboy.Story.TextView.Title.OneImage" parent="@style/Appboy.Story.TextView.Title" />
+    <style name="Appboy.Story.TextViewContainer" parent="@style/Appboy.Story">
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="Appboy.Story.TextViewContainer.Subtitle" parent="@style/Appboy.Story.TextViewContainer" />
+    <style name="Appboy.Story.TextViewContainer.Subtitle.OneImage" parent="@style/Appboy.Story.TextViewContainer.Subtitle">
+        <item name="android:layout_weight">0.0</item>
+        <item name="android:layout_below">@id/com_appboy_story_text_view_container</item>
+    </style>
+    <style name="Appboy.Story.TextViewContainer.Title" parent="@style/Appboy.Story.TextViewContainer" />
+    <style name="Appboy.Story.TextViewContainer.Title.OneImage" parent="@style/Appboy.Story.TextViewContainer.Title">
+        <item name="android:layout_weight">0.0</item>
+        <item name="android:layout_below">@id/com_appboy_story_image_view</item>
+    </style>
+    <style name="Appboy.Theme.Transparent" parent="@android:style/Theme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="BaseUnityTheme" parent="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" />
+    <style name="CustomOpaque" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification" parent="@android:style/TextAppearance.StatusBar.EventContent" />
+    <style name="TextAppearance.Compat.Notification.Info" parent="@style/TextAppearance.Compat.Notification">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Info.Media" parent="@style/TextAppearance.Compat.Notification.Info" />
+    <style name="TextAppearance.Compat.Notification.Line2" parent="@style/TextAppearance.Compat.Notification.Info" />
+    <style name="TextAppearance.Compat.Notification.Line2.Media" parent="@style/TextAppearance.Compat.Notification.Info.Media" />
+    <style name="TextAppearance.Compat.Notification.Media" parent="@style/TextAppearance.Compat.Notification" />
+    <style name="TextAppearance.Compat.Notification.Time" parent="@style/TextAppearance.Compat.Notification">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+    <style name="TextAppearance.Compat.Notification.Time.Media" parent="@style/TextAppearance.Compat.Notification.Time" />
+    <style name="TextAppearance.Compat.Notification.Title" parent="@android:style/TextAppearance.StatusBar.EventContent.Title" />
+    <style name="TextAppearance.Compat.Notification.Title.Media" parent="@style/TextAppearance.Compat.Notification.Title" />
+    <style name="UnityThemeSelector" parent="@style/BaseUnityTheme">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+    <style name="UnityThemeSelector.Translucent" parent="@style/UnityThemeSelector">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="VrActivityTheme" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+    <style name="Widget.Compat.NotificationActionContainer" parent="" />
+    <style name="Widget.Compat.NotificationActionText" parent="" />
+    <style name="Widget.Support.CoordinatorLayout" parent="@android:style/Widget">
+        <item name="statusBarBackground">#000000</item>
+    </style>
+</resources>

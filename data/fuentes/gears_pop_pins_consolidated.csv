@@ -1,0 +1,65 @@
+pin,rarity,role,type,added,energy_cost,hp,damage,dps,attack_interval_s,attack_interval_origin,speed,range,target,damage_radius,capture_strength,troops,skill,extra,sources,notes
+Spotters,Common,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Longshot Gear,Common,Scout,Troop,lanzamiento,4,136,113,29.7,3.8,wiki,3,42,All,,Weak,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Scion,Common,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Decoy,Common,Utility,Fortification,lanzamiento,2,423,,,,,,,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Stun Tracker,Common,Scout,Troop,lanzamiento,1,89,26,,,,7,,All,,,,,stun_radius=Small; stun_duration_(secs)=2,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Frag Grenade,Common,Removal,Projectile,lanzamiento,4,,144,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Locust Drone,Common,Bruiser,Troop,lanzamiento,4,167,28,28,1,wiki,5,24,All,,Average,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Shepherds,Common,Scout,Troop,lanzamiento,3,68,13,21.7,0.6,wiki,3,18,All,,,3,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Ink Grenade,Common,Removal,Projectile,lanzamiento,4,,96,8,,,,,,,,,,duración del efecto ≈ 12.0 s (derivado daño/DPS),depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Ticker,Common,Scout,Troop,actualización 1,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Onyx Guards,Common,Scout,Troop,actualización 2,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Shock Barrier,Common,Utility,Fortification,lanzamiento,2,97,16,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Stun Grenade,Common,Utility,Projectile,lanzamiento,3,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Savage Grenadier,Common,Bruiser,Troop,lanzamiento,3,132,68,17,1.4,wiki,3,24,All,,Average,,,objectives_damage=-70%,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Juvies,Rare,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Sentry,Rare,Utility,Fortification,lanzamiento,3,379,23,46,0.50,derivado (daño/DPS),,17,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Power Generator,Rare,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Clayton Carmine,Rare,Threat,Troop,lanzamiento,5,394,32,21.3,1.50,derivado (daño/DPS),,12,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Augustus Cole,Rare,Tank,Troop,lanzamiento,3,353,43,33.1,1.3,wiki,3,12,All,,,,,mantle_kicks=Yes,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Boomer,Rare,Bruiser,Troop,lanzamiento,6,353,42,28,1.5,wiki,3,21?,All,Small,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,"alcance en conflicto: Pocket Gamer=28, wiki=21"
+Wretches,Rare,Scout,Troop,lanzamiento,3,40,12,15,0.8,wiki,7,Melee,All,,,,,mantle_kicks=Yes,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Bernadette Mataki,Rare,Scout,Troop,actualización 2,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Drone Division,Rare,Bruiser,Troop,lanzamiento,9,188,32,32,1,wiki,5,24,All,,Average,2,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Lancer Crew,Rare,Bruiser,Troop,lanzamiento,6,72,22,27.5,0.80,derivado (daño/DPS),,24,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Gnasher Gang,Rare,Bruiser,Troop,lanzamiento,7,241,32,21.3,1.5,wiki,7,12,All,,,3,,mantle_kicks=Yes,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Del Walker,Rare,Bruiser,Troop,actualización 1,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Deadeye,Rare,Scout,Troop,lanzamiento,5,140,57,15,3.8,wiki,3,200,All,,Weak,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Sam Byrne,Epic,Scout,Troop,actualización 2,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Marcus Fenix,Epic,Bruiser,Troop,lanzamiento,5,178,83,92.2,0.9,wiki,5,24,All,,Very Strong,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Dominic Santiago,Epic,Utility,Troop,lanzamiento,4,438,42,42,1.00,derivado (daño/DPS),,18,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Grinder,Epic,Bruiser,Troop,lanzamiento,6,410,11-143,15.7-205.3,,,,22,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Hammer Of Dawn,Epic,Removal,Projectile,lanzamiento,6,,864,480,,,,,All,,,,,duración del efecto ≈ 1.8 s (derivado daño/DPS),depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Drop Pod,Epic,Utility,Projectile,actualización 1,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Fahz Chutani,Epic,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+DR-1,Epic,Tank,Troop,lanzamiento,6,513,38,25.3,1.5,wiki,3,16,All,,,,,mantle_kicks=Yes,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Damon Baird,Epic,Scout,Troop,lanzamiento,5,270,21,19.1,1.1,wiki,5,24,All,,Average,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Butcher,Epic,Tank,Troop,lanzamiento,5,709,106,58.9,1.8,wiki,3,Melee,Fortifications & Objectives,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Jack,Epic,Utility,Troop,evento Gears 5,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Kait Diaz,Epic,Threat,Troop,lanzamiento,4,370,100,66.7,1.50,derivado (daño/DPS),,12,Fortifications & Objectives,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),objetivo 'Fortifications & Objectives' sin confirmar (tabla de Pocket Gamer con filas mezcladas)
+Anya Stroud,Legendary,Scout,Troop,actualización 1,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Victor Hoffman,Legendary,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Mina Jinn,Legendary,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Myrrah,Legendary,Bruiser,Troop,lanzamiento,7,620,45,25,1.80,derivado (daño/DPS),,20,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Old Man Marcus,Legendary,Bruiser,Troop,lanzamiento,4,350,65,92.9,0.70,derivado (daño/DPS),,24,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Skorge,Legendary,Bruiser,Troop,lanzamiento,6,700,75,75,1.00,derivado (daño/DPS),,Melee,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+General RAAM,Legendary,Tank,Troop,actualización 2,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Winter Kait,Legendary,Threat,Troop,evento Gears 5,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Lancer Gear,Common,,,posterior / sin dato,1,64,18,22.5,0.80,derivado (daño/DPS),,24,All,,,,,,depressifier (rareza) + Pocket Gamer 2019 (tu CSV),
+Shock Grenade,Common,Utility,Projectile,lanzamiento,2,,28,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Nemacysts,Common,Removal,Projectile,lanzamiento,2,,68,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Snub Soldiers,Common,,,posterior / sin dato,2,48,16,13.3,1.20,derivado (daño/DPS),,24,All,,,,,,depressifier (rareza) + Pocket Gamer 2019 (tu CSV),
+Kantus,Common,Utility,Troop,lanzamiento,3,132,11,12.2,0.90,derivado (daño/DPS),,24,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Sentinel,Rare,Bruiser,Troop,lanzamiento,3,187,35,14,2.50,derivado (daño/DPS),,15,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+Reyna Diaz,Epic,Threat,Troop,lanzamiento,3,234,79,101,0.78,derivado (daño/DPS),,Melee,All,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV),
+JD Fenix,Epic,Scout,Troop,lanzamiento,5,201,31,31,1,wiki,5,24,All,,Average,,Down But Not Out,,depressifier (rareza) + GoW Wiki (rol/tipo) + Pocket Gamer 2019 (tu CSV) + Gears PoP! Wiki 2019,
+Seeder,Epic,Ultimate,Ultimate,lanzamiento,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Emergence Hole,Epic,Ultimate,Ultimate,lanzamiento,,,,,,,,,,,,,,,depressifier (rareza) + GoW Wiki (rol/tipo),SIN STATS en ninguna fuente
+Windflare,Epic,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Gabe Diaz,Legendary,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Tai Kaliso,Rare,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Sid Redburn,Epic,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Shock Sentry,Epic,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Alex Brand,Epic,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente
+Bruce,Rare,,,posterior / sin dato,,,,,,,,,,,,,,,depressifier (rareza),SIN STATS en ninguna fuente

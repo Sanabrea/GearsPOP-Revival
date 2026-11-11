@@ -1,0 +1,37 @@
+pin,level,rarity,energy_cost,hp,damage,dps,attack_interval_s,target,range,speed,capture_strength,troops,mantle_kicks,extra
+Butcher,1,Epic,5,709,106,58.9,1.8,Fortifications & Objectives,Melee,3,,,,
+Augustus Cole,1,Rare,3,353,43,33.1,1.3,All,12,3,,,Yes,
+Clayton Carmine,1,Rare,5,394,32,21.3,1.5,All,12,5,,,Yes,
+Savage Grenadier,1,Common,3,132,68,17,1.4,All,24,3,Average,,,damage_radius=Small; objectives_damage=-70%
+Marcus Fenix,1,Epic,5,178,83,92.2,0.9,All,24,5,Very Strong,,,
+Shepherds,1,Common,3,68,13,21.7,0.6,All,18,3,,3,,
+Frag Grenade,1,Common,4,,144,,,,,,,,,damage_radius=Small; objectives_damage=-70%
+Lancer Gear,1,Common,1,64,18,22.5,0.8,All,24,5,Average,,,
+Ink Grenade,1,Common,4,,96,8,,,,,,,,dot_duration_s=12; damage_radius=Large; objectives_damage=-70%
+Locust Drone,1,Common,4,167,28,28,1,All,24,5,Average,,,
+Stun Tracker,1,Common,,89,26,,,All,,7,,,,stun_radius=Small; stun_duration_s=2
+Decoy,1,Common,,423,,,,All,,,,,,lifetime_s=10; taunt_radius=Large
+Shock Grenade,1,Common,,,28,,,,,,,,,shock_potency=35%; shock_duration_s=8; radius=Medium; objectives_damage=-70%
+Nemacysts,1,Common,,,68,,,,,,,,,spawn_count=3; damage_radius=Small; objectives_damage=-70%
+Shock Barrier,1,Common,,97,16,,,,,,,,,lifetime_s=45; shock_potency=75%; shock_duration_s=4
+Snub Soldiers,1,Common,,48,16,13.3,1.2,All,24,6,Average,2,,
+Stun Grenade,1,Common,,,,,,,,,,,,stun_duration_s=2.5; stun_radius=Medium
+Kantus,1,Common,,132,11,12.2,0.9,All,24,5,Average,,,la ficha en español decía "Grinder" (Común); stats y modelo coinciden con Kantus
+Sentry,1,Rare,,379,23,46,0.5,All,17,,,,,lifetime_s=50
+Wretches,1,Rare,,40,12,15,0.8,All,Melee,7,,5,Yes,
+Reyna Diaz,1,Epic,,234,79,101,1.3,All,Melee,7,,,,DPS mayor que daño/cadencia (probable golpe crítico periódico)
+Old Man Marcus,1,Legendary,,350,65,92.9,0.7,All,24,5,Strong,,,
+Dominic Santiago,1,Epic,,438,42,42,1,All,18,3,,,,
+Longshot Gear,1,Common,4,136,113,29.7,3.8,All,42,3,Weak,,,
+Deadeye,1,Rare,,140,57,15,3.8,All,200,3,Weak,,,
+Damon Baird,1,Epic,,270,21,19.1,1.1,All,24,5,Average,,,
+JD Fenix,1,Epic,,201,31,31,1,All,24,5,Average,,,
+Lancer Crew,1,Rare,,72,22,27.5,0.8,All,24,5,Strong,4,,
+Boomer,1,Rare,,353,42,28,1.5,All,21,3,,,,damage_radius=Small
+Skorge,1,Legendary,,700,75,75,1,All,Melee,5,,,Yes,
+Hammer Of Dawn,1,Epic,,,864,480,,All,,,,,,dot_duration_s=1.8; dot_radius=Small; stun_duration_s=1.8; stun_radius=Small; objectives_damage=-70%
+Grinder,1,Epic,,410,11,15.7,0.7,All,22,3,,,,max_damage=143; max_dps=204.3
+DR-1,1,Epic,,513,38,25.3,1.5,All,16,3,,,Yes,
+Myrrah,1,Legendary,,620,45,25,1.8,All,20,3,,,,spawn_count=3; wretch_level=1
+Gnasher Gang,1,Rare,,241,32,21.3,1.5,All,12,7,,3,Yes,
+Drone Division,1,Rare,,188,32,32,1,All,24,5,Average,2,,

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Appboy.InAppMessage.Full" parent="@style/Appboy.InAppMessage">
+        <item name="android:background">@drawable/com_appboy_inappmessage_modal_background</item>
+        <item name="android:padding">0.0dp</item>
+        <item name="android:layout_width">450.0dp</item>
+        <item name="android:layout_height">720.0dp</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+</resources>

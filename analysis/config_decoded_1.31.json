@@ -1,0 +1,7 @@
+{
+    "environment": "Production",
+    "cms_url": "https://content.gamefuel.info/cms/projects/moncton/branches/production/groups",
+    "loginEndpoint": "login-production.moncton.oncatapult.com",
+    "battleEndpoint": "mpgateways-production.moncton.oncatapult.com",
+    "gatewayEndpoint": "gateway-production.moncton.oncatapult.com"
+}
